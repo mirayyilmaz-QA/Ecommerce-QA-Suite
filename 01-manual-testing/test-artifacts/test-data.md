@@ -22,14 +22,37 @@
 
 ---
 
-## 4. Test Accounts (Customer)
-* **Email:** `qa.tester@example.com`
-* **Password:** `Tester123!`
+## 4. Customer Personas (Guest & Registered)
+The following personas are used to validate different checkout flows and account-based features.
+
+| Detail | Guest User | Registered User |
+| :--- | :--- | :--- |
+| **Full Name** | Miray Yilmaz | Testy McTester |
+| **Email** | guest_tester@example.com | registered_qa@example.com |
+| **Address** | 123 Testing Lane, Suite 101 | 456 Bug Street |
+| **City/State/Zip** | Austin, TX, 78701 | Los Angeles, CA, 90210 |
+| **Phone** | 555-010-9999 | 555-010-8888 |
 
 ---
 
-## 5. Payment Details (Mock/Simulated)
-* **Card Type:** Visa
-* **Card Number:** `4242 4242 4242 4242`
-* **Expiration Date:** `12/2026`
-* **CVV:** `123`
+## 5. Payment Information (Industry Standard)
+These card numbers are used for testing successful and declined transactions in the Braintree/Stripe sandbox environments.
+
+| Card Type | Card Number | Expiry | CVV |
+| :--- | :--- | :--- | :--- |
+| **Visa (Success)** | 4111 1111 1111 1111 | 12/2030 | 123 |
+| **Mastercard (Success)** | 5105 1051 0510 5105 | 12/2030 | 123 |
+| **Visa (Declined)** | 4000 0000 0000 0002 | 12/2030 | 123 |
+
+> **Note:** These are standard dummy test numbers used for demo environments and do not represent real financial data.
+
+---
+
+## 6. Promotion & Discount Codes
+Used to validate the "Cart Price Rules" and discount application logic.
+
+| Code | Type | Expected Effect |
+| :--- | :--- | :--- |
+| **20OFF** | Valid Percentage | 20% discount on subtotal |
+| **60OFF** | Expired/Inactive | Error: "The coupon code is not valid." |
+| **FREESHIP** | Valid Shipping | Shipping cost becomes $0.00 |

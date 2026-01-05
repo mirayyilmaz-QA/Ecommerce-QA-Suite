@@ -12,11 +12,11 @@ My background in IT recruitment provides me with a unique perspective on team dy
 * **Traceability-Matrix/**: Mapping requirements to test cases to ensure 100% coverage.
 
 ## Key User Stories Tested
-* **Guest Checkout with Inventory Validation
-* **Multi-Attribute Product Comparison
-* **Configurable Product Selection & Dynamic Pricing 
-* **Tiered Pricing & Quantity Discounts
-* **Advanced Search with Layered Navigation (Faceted Search)
+* Guest Checkout with Inventory Validation
+* Multi-Attribute Product Comparison
+* Configurable Product Selection & Dynamic Pricing 
+* Tiered Pricing & Quantity Discounts
+* Advanced Search with Layered Navigation (Faceted Search)
 ## Tools Used
 While I used Excel for this public repository to ensure accessibility, I am proficient in Jira/Xray for test management.
 * **Test Management:** Excel / Google Sheets

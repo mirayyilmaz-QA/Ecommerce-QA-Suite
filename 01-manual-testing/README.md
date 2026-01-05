@@ -17,8 +17,20 @@ My background in IT recruitment provides me with a unique perspective on team dy
 * Configurable Product Selection & Dynamic Pricing 
 * Tiered Pricing & Quantity Discounts
 * Advanced Search with Layered Navigation (Faceted Search)
+  
 ## Tools Used
 While I used Excel for this public repository to ensure accessibility, I am proficient in Jira/Xray for test management.
 * **Test Management:** Excel / Google Sheets
 * **Documentation:** Markdown,Excel
 * **Bug Tracking:** GitHub Issues (Simulated)
+
+## Test Execution Summary
+* **Total Test Cases:** 16
+* **Passed:** 13
+* **Failed:** 3
+* **Blocked:** 0
+* **Defects Identified:** 3
+
+### Key Findings
+* **Critical:** System failed to trigger "out of stock" validation.
+* **High:** Tiered pricing calculation error in Mini-cart.

@@ -41,7 +41,7 @@ To validate core end-to-end business flows of an e-commerce system, ensuring cor
 ---
 
 ## 6. Test Data 
-Please check the `Test-Data.md` file for specific SKUs and login details. 
+Please check the `test-data.md` file for specific SKUs and login details. 
 
 ---
 

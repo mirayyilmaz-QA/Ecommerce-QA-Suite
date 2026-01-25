@@ -29,9 +29,9 @@ This avoids duplicated users and test data conflicts.
 
 ## Stability Strategy
 
-** Background activity handling using real UI signals (loaders, masks, spinners)
-** Precise element selection to avoid wrong interactions (e.g. `S` vs `XS`)
-** Reliable interactions with overlays and blocked elements
+* Background activity handling using real UI signals (loaders, masks, spinners)
+* Precise element selection to avoid wrong interactions (e.g. `S` vs `XS`)
+* Reliable interactions with overlays and blocked elements
 
 ---
 
@@ -87,11 +87,12 @@ This project includes GitHub Actions integration. Tests are automatically execut
 ## Purpose
 This project is part of my QA engineering portfolio and demonstrates:
 
-** Real-world automation design
-** Scalable framework structure
-** Maintainability
-** Stability-focused testing
-** CI-ready automation
+* Real-world automation design
+* Scalable framework structure
+* Maintainability
+* Stability-focused testing
+* CI-ready automation
+
 
 
 

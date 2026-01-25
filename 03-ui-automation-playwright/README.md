@@ -44,3 +44,6 @@ Test data (user, address, shipping info) is generated dynamically for each run. 
 ├─ playwright.config.ts
 ├─ package.json
 └─ README.md
+
+## Getting Started
+

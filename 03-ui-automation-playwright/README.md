@@ -40,10 +40,10 @@ This avoids duplicated users and test data conflicts.
 ```text
 03-ui-automation-playwright/
 │
-├─ pages/              # Page Objects
-├─ components/         # Reusable UI components
-├─ core/               # Framework core utilities
-├─ tests/              # E2E test scenarios
+├─ pages/               Page Objects
+├─ components/          Reusable UI components
+├─ core/                Framework core utilities
+├─ tests/               E2E test scenarios
 ├─ playwright.config.ts
 ├─ package.json
 └─ README.md
@@ -94,6 +94,7 @@ This project is part of my QA engineering portfolio and demonstrates:
 * CI-ready automation
 
 This is not a tutorial-style demo project.  It is designed as a production-style automation framework following real-world QA practices.
+
 
 
 

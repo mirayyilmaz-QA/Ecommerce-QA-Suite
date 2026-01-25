@@ -1,0 +1,202 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Skip to Content" [ref=e6] [cursor=pointer]:
+        - /url: "#contentarea"
+      - list [ref=e7]:
+        - listitem
+        - listitem [ref=e8]:
+          - button "Change " [ref=e9] [cursor=pointer]:
+            - button "Change " [ref=e10]:
+              - generic [ref=e11]: Change
+              - text: 
+          - text: ()
+    - generic [ref=e12]:
+      - text: 
+      - link "store logo" [ref=e13] [cursor=pointer]:
+        - /url: https://magento2-demo.magebit.com/
+      - link " My Cart" [ref=e15] [cursor=pointer]:
+        - /url: https://magento2-demo.magebit.com/checkout/cart/
+        - text: 
+        - generic [ref=e16]: My Cart
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - text: 
+            - generic [ref=e22]: Search
+          - combobox " Search" [ref=e24]
+        - generic:
+          - button "Search" [disabled]:
+            - text: 
+            - generic: Search
+      - list:
+        - listitem: ()
+  - tablist [ref=e26]:
+    - tabpanel [ref=e27]:
+      - navigation [ref=e28]:
+        - list [ref=e29]:
+          - listitem [ref=e30]:
+            - link "What's New" [ref=e31] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/what-is-new.html
+          - listitem [ref=e32]:
+            - link "Women" [ref=e33] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/women.html
+          - listitem [ref=e34]:
+            - link "Men" [ref=e35] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/men.html
+          - listitem [ref=e36]:
+            - link "Gear" [ref=e37] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/gear.html
+          - listitem [ref=e38]:
+            - link "Training" [ref=e39] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/training.html
+          - listitem [ref=e40]:
+            - link "Sale" [ref=e41] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/sale.html
+          - listitem [ref=e42]:
+            - link "Gift Cards" [ref=e43] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/gift-cards.html
+          - listitem [ref=e44]:
+            - link "Test Category" [ref=e45] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/test-category.html
+    - text:  ()
+  - main [ref=e46]:
+    - generic:
+      - generic:
+        - alert
+        - alert
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - heading "My Account" [level=1] [ref=e50]
+        - generic [ref=e51]:
+          - strong [ref=e53]: Account Information
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - strong [ref=e56]: Contact Information
+              - paragraph [ref=e58]:
+                - text: Silas Hilll
+                - text: Scot73@gmail.com
+              - generic [ref=e59]:
+                - link "Edit" [ref=e60] [cursor=pointer]:
+                  - /url: https://magento2-demo.magebit.com/customer/account/edit/
+                - link "Change Password" [ref=e61] [cursor=pointer]:
+                  - /url: https://magento2-demo.magebit.com/customer/account/edit/changepass/1/
+            - generic [ref=e62]:
+              - strong [ref=e63]: Newsletters
+              - paragraph [ref=e65]: You aren't subscribed to our newsletter.
+              - link "Edit" [ref=e67] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/newsletter/manage/
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - strong [ref=e70]: Address Book
+            - link "Manage Addresses" [ref=e71] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/customer/address/
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - strong [ref=e74]: Default Billing Address
+              - generic [ref=e76]: You have not set a default billing address.
+              - link "Edit Address" [ref=e78] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/customer/address/edit/
+            - generic [ref=e79]:
+              - strong [ref=e80]: Default Shipping Address
+              - generic [ref=e82]: You have not set a default shipping address.
+              - link "Edit Address" [ref=e84] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/customer/address/edit/
+      - generic [ref=e86]:
+        - strong [ref=e88]: My Account
+        - list [ref=e90]:
+          - listitem [ref=e91]:
+            - strong [ref=e92]: My Account
+          - listitem [ref=e93]:
+            - link "My Orders" [ref=e94] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/sales/order/history/
+          - listitem [ref=e95]:
+            - link "Order by SKU" [ref=e96] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/customer_order/sku/
+          - listitem [ref=e97]:
+            - link "My Downloadable Products" [ref=e98] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/downloadable/customer/products/
+          - listitem [ref=e99]:
+            - link "My Wish List" [ref=e100] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/wishlist/
+          - listitem [ref=e101]
+          - listitem [ref=e103]:
+            - link "Address Book" [ref=e104] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/customer/address/
+          - listitem [ref=e105]:
+            - link "Account Information" [ref=e106] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/customer/account/edit/
+          - listitem [ref=e107]:
+            - link "Store Credit" [ref=e108] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/storecredit/info/
+          - listitem [ref=e109]:
+            - link "Stored Payment Methods" [ref=e110] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/vault/cards/listaction/
+          - listitem [ref=e111]:
+            - link "Gift Card" [ref=e112] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/giftcard/customer/
+          - listitem [ref=e113]
+          - listitem [ref=e115]:
+            - link "Reward Points" [ref=e116] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/reward/customer/info/
+          - listitem [ref=e117]:
+            - link "Gift Registry" [ref=e118] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/giftregistry/
+          - listitem [ref=e119]:
+            - link "My Product Reviews" [ref=e120] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/review/customer/
+          - listitem [ref=e121]:
+            - link "Newsletter Subscriptions" [ref=e122] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/newsletter/manage/
+          - listitem [ref=e123]:
+            - link "My Invitations" [ref=e124] [cursor=pointer]:
+              - /url: https://magento2-demo.magebit.com/invitation/
+      - generic [ref=e125]:
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - heading "Compare Products" [level=2] [ref=e128]
+            - text: ()
+          - text: 
+          - generic [ref=e129]: You have no items to compare.
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - heading "My Wish Lists" [level=2] [ref=e132]
+            - generic [ref=e133]: ()
+          - generic [ref=e134]:
+            - text: 
+            - generic [ref=e135]: You have no items in your wish list.
+  - contentinfo [ref=e136]:
+    - generic [ref=e137]:
+      - generic [ref=e140]:
+        - generic [ref=e142]:
+          - text: 
+          - generic [ref=e143]:
+            - generic [ref=e144]: "Sign Up for Our Newsletter:"
+            - textbox "Sign Up for Our Newsletter:" [ref=e145]:
+              - /placeholder: Enter your email address
+        - button "Subscribe" [ref=e147] [cursor=pointer]
+      - list [ref=e150]:
+        - listitem [ref=e151]:
+          - link "About us" [ref=e152] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/about-us/
+        - listitem [ref=e153]:
+          - link "Customer Service" [ref=e154] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/customer-service/
+      - list [ref=e155]:
+        - listitem [ref=e156]:
+          - link "Privacy and Cookie Policy" [ref=e157] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/privacy-policy-cookie-restriction-mode/
+        - listitem [ref=e158]:
+          - link "Search Terms" [ref=e159] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/search/term/popular/
+        - listitem [ref=e160]:
+          - link "Advanced Search" [ref=e161] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/catalogsearch/advanced/
+        - listitem [ref=e162]:
+          - link "Contact Us" [ref=e163] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/contact/
+  - generic [ref=e164]: Copyright © 2013-present Magento, Inc. All rights reserved.
+```

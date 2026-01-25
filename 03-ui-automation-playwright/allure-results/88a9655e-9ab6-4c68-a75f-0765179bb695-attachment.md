@@ -1,0 +1,610 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Skip to Content" [ref=e6] [cursor=pointer]:
+        - /url: "#contentarea"
+      - list [ref=e7]:
+        - listitem [ref=e8]: Default welcome msg!
+        - listitem [ref=e9]:
+          - link "Sign In" [ref=e10] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvMi1kZW1vLm1hZ2ViaXQuY29tL2NhdGFsb2dzZWFyY2gvcmVzdWx0L2luZGV4Lz9xPUFyZ3VzK0FsbC1XZWF0aGVyK1Rhbms%2C/
+          - text: or
+        - listitem [ref=e11]:
+          - link "Create an Account" [ref=e12] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/customer/account/create/
+    - generic [ref=e13]:
+      - text: 
+      - link "store logo" [ref=e14] [cursor=pointer]:
+        - /url: https://magento2-demo.magebit.com/
+      - generic [ref=e15]:
+        - link " My Cart" [ref=e16] [cursor=pointer]:
+          - /url: https://magento2-demo.magebit.com/checkout/cart/
+          - text: 
+          - generic [ref=e17]: My Cart
+        - text: 
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - text: 
+            - generic [ref=e23]: Search
+          - combobox " Search" [ref=e25]: Argus All-Weather Tank
+        - generic:
+          - button "Search" [disabled]:
+            - text: 
+            - generic: Search
+      - list:
+        - listitem: ()
+  - generic:
+    - tablist:
+      - tabpanel
+  - list [ref=e27]:
+    - listitem [ref=e28]:
+      - link "Home" [ref=e29] [cursor=pointer]:
+        - /url: https://magento2-demo.magebit.com/
+      - text: 
+    - listitem [ref=e30]:
+      - strong [ref=e31]: "Search results for: 'Argus All-Weather Tank'"
+  - main [ref=e32]:
+    - 'heading "Search results for: ''Argus All-Weather Tank''" [level=1] [ref=e34]'
+    - generic [ref=e35]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - strong [ref=e40]: View as
+            - strong [ref=e41]:
+              - text: 
+              - generic [ref=e42]: Grid
+            - link "View as  List" [ref=e43] [cursor=pointer]:
+              - /url: "#"
+              - text: 
+              - generic [ref=e44]: List
+          - paragraph [ref=e45]: Items 1-12 of 63
+          - text: 
+          - generic [ref=e46]:
+            - text: Sort By
+            - combobox "Sort By Sort By" [ref=e47]:
+              - option "Product Name"
+              - option "Price"
+              - option "Relevance" [selected]
+            - link " Set Ascending Direction" [ref=e48] [cursor=pointer]:
+              - /url: "#"
+              - text: 
+              - generic [ref=e49]: Set Ascending Direction
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - generic [ref=e53]:
+              - link "Argus All-Weather Tank" [ref=e54] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/argus-all-weather-tank.html
+                - img "Argus All-Weather Tank" [ref=e57]
+              - generic [ref=e58]:
+                - strong [ref=e59]:
+                  - link "Argus All-Weather Tank" [ref=e60] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/argus-all-weather-tank.html
+                - generic [ref=e63]:
+                  - text: As low as
+                  - generic [ref=e64]: $22.00
+                - generic [ref=e65]:
+                  - listbox "Size" [ref=e67]:
+                    - option "XS" [ref=e68] [cursor=pointer]
+                    - option "S" [ref=e69] [cursor=pointer]
+                    - option "M" [ref=e70] [cursor=pointer]
+                    - option "L" [ref=e71] [cursor=pointer]
+                    - option "XL" [ref=e72] [cursor=pointer]
+                  - listbox "Color" [ref=e74]:
+                    - option "Gray" [ref=e75] [cursor=pointer]
+                - generic [ref=e77]:
+                  - button "Add to Cart" [ref=e80] [cursor=pointer]
+                  - generic [ref=e81]:
+                    - button "Add to Wish List" [ref=e82] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e83]: Add to Wish List
+                    - button "Add to Compare" [ref=e84] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e85]: Add to Compare
+          - listitem [ref=e86]:
+            - generic [ref=e87]:
+              - link "Jupiter All-Weather Trainer" [ref=e88] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/jupiter-all-weather-trainer.html
+                - img "Jupiter All-Weather Trainer" [ref=e91]
+              - generic [ref=e92]:
+                - strong [ref=e93]:
+                  - link "Jupiter All-Weather Trainer" [ref=e94] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/jupiter-all-weather-trainer.html
+                - generic [ref=e95]:
+                  - generic [ref=e96]:
+                    - generic [ref=e97]: "Rating:"
+                    - generic "80%" [ref=e98]:
+                      - text: 
+                      - generic [ref=e99]:
+                        - text: 
+                        - generic [ref=e100]: 80%
+                  - link "3 Reviews" [ref=e102] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/jupiter-all-weather-trainer.html#reviews
+                - generic [ref=e105]:
+                  - text: As low as
+                  - generic [ref=e106]: $56.99
+                - generic [ref=e107]:
+                  - listbox "Size" [ref=e109]:
+                    - option "XS" [ref=e110] [cursor=pointer]
+                    - option "S" [ref=e111] [cursor=pointer]
+                    - option "M" [ref=e112] [cursor=pointer]
+                    - option "L" [ref=e113] [cursor=pointer]
+                    - option "XL" [ref=e114] [cursor=pointer]
+                  - listbox "Color" [ref=e116]:
+                    - option "Blue" [ref=e117] [cursor=pointer]
+                    - option "Green" [ref=e118] [cursor=pointer]
+                    - option "Purple" [ref=e119] [cursor=pointer]
+                - generic [ref=e121]:
+                  - button "Add to Cart" [ref=e124] [cursor=pointer]
+                  - generic [ref=e125]:
+                    - button "Add to Wish List" [ref=e126] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e127]: Add to Wish List
+                    - button "Add to Compare" [ref=e128] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e129]: Add to Compare
+          - listitem [ref=e130]:
+            - generic [ref=e131]:
+              - link "Sparta Gym Tank" [ref=e132] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/sparta-gym-tank.html
+                - img "Sparta Gym Tank" [ref=e135]
+              - generic [ref=e136]:
+                - strong [ref=e137]:
+                  - link "Sparta Gym Tank" [ref=e138] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/sparta-gym-tank.html
+                - generic [ref=e141]:
+                  - text: As low as
+                  - generic [ref=e142]: $29.00
+                - generic [ref=e143]:
+                  - listbox "Size" [ref=e145]:
+                    - option "XS" [ref=e146] [cursor=pointer]
+                    - option "S" [ref=e147] [cursor=pointer]
+                    - option "M" [ref=e148] [cursor=pointer]
+                    - option "L" [ref=e149] [cursor=pointer]
+                    - option "XL" [ref=e150] [cursor=pointer]
+                  - listbox "Color" [ref=e152]:
+                    - option "Green" [ref=e153] [cursor=pointer]
+                - generic [ref=e155]:
+                  - button "Add to Cart" [ref=e158] [cursor=pointer]
+                  - generic [ref=e159]:
+                    - button "Add to Wish List" [ref=e160] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e161]: Add to Wish List
+                    - button "Add to Compare" [ref=e162] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e163]: Add to Compare
+          - listitem [ref=e164]:
+            - generic [ref=e165]:
+              - link "Livingston All-Purpose Tight" [ref=e166] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/livingston-all-purpose-tight.html
+                - img "Livingston All-Purpose Tight" [ref=e169]
+              - generic [ref=e170]:
+                - strong [ref=e171]:
+                  - link "Livingston All-Purpose Tight" [ref=e172] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/livingston-all-purpose-tight.html
+                - generic [ref=e175]:
+                  - text: As low as
+                  - generic [ref=e176]: $75.00
+                - generic [ref=e177]:
+                  - listbox "Size" [ref=e179]:
+                    - option "32" [ref=e180] [cursor=pointer]
+                    - option "33" [ref=e181] [cursor=pointer]
+                    - option "34" [ref=e182] [cursor=pointer]
+                    - option "36" [ref=e183] [cursor=pointer]
+                  - listbox "Color" [ref=e185]:
+                    - option "Black" [ref=e186] [cursor=pointer]
+                    - option "Blue" [ref=e187] [cursor=pointer]
+                    - option "Red" [ref=e188] [cursor=pointer]
+                - generic [ref=e190]:
+                  - button "Add to Cart" [ref=e193] [cursor=pointer]
+                  - generic [ref=e194]:
+                    - button "Add to Wish List" [ref=e195] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e196]: Add to Wish List
+                    - button "Add to Compare" [ref=e197] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e198]: Add to Compare
+          - listitem [ref=e199]:
+            - generic [ref=e200]:
+              - link "Mimi All-Purpose Short" [ref=e201] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/mimi-all-purpose-short.html
+                - img "Mimi All-Purpose Short" [ref=e204]
+              - generic [ref=e205]:
+                - strong [ref=e206]:
+                  - link "Mimi All-Purpose Short" [ref=e207] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/mimi-all-purpose-short.html
+                - generic [ref=e208]:
+                  - generic [ref=e209]:
+                    - generic [ref=e210]: "Rating:"
+                    - generic "67%" [ref=e211]:
+                      - text: 
+                      - generic [ref=e212]:
+                        - text: 
+                        - generic [ref=e213]: 67%
+                  - link "3 Reviews" [ref=e215] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/mimi-all-purpose-short.html#reviews
+                - generic [ref=e218]:
+                  - text: As low as
+                  - generic [ref=e219]: $44.00
+                - generic [ref=e220]:
+                  - listbox "Size" [ref=e222]:
+                    - option "28" [ref=e223] [cursor=pointer]
+                    - option "29" [ref=e224] [cursor=pointer]
+                  - listbox "Color" [ref=e226]:
+                    - option "Gray" [ref=e227] [cursor=pointer]
+                    - option "Green" [ref=e228] [cursor=pointer]
+                    - option "White" [ref=e229] [cursor=pointer]
+                - generic [ref=e231]:
+                  - button "Add to Cart" [ref=e234] [cursor=pointer]
+                  - generic [ref=e235]:
+                    - button "Add to Wish List" [ref=e236] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e237]: Add to Wish List
+                    - button "Add to Compare" [ref=e238] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e239]: Add to Compare
+          - listitem [ref=e240]:
+            - generic [ref=e241]:
+              - link "Primo Endurance Tank" [ref=e242] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/primo-endurance-tank.html
+                - img "Primo Endurance Tank" [ref=e245]
+              - generic [ref=e246]:
+                - strong [ref=e247]:
+                  - link "Primo Endurance Tank" [ref=e248] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/primo-endurance-tank.html
+                - generic [ref=e249]:
+                  - generic [ref=e250]:
+                    - generic [ref=e251]: "Rating:"
+                    - generic "53%" [ref=e252]:
+                      - text: 
+                      - generic [ref=e253]:
+                        - text: 
+                        - generic [ref=e254]: 53%
+                  - link "3 Reviews" [ref=e256] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/primo-endurance-tank.html#reviews
+                - generic [ref=e259]:
+                  - text: As low as
+                  - generic [ref=e260]: $29.00
+                - generic [ref=e261]:
+                  - listbox "Size" [ref=e263]:
+                    - option "XS" [ref=e264] [cursor=pointer]
+                    - option "S" [ref=e265] [cursor=pointer]
+                    - option "M" [ref=e266] [cursor=pointer]
+                    - option "L" [ref=e267] [cursor=pointer]
+                    - option "XL" [ref=e268] [cursor=pointer]
+                  - listbox "Color" [ref=e270]:
+                    - option "Blue" [ref=e271] [cursor=pointer]
+                    - option "Red" [ref=e272] [cursor=pointer]
+                    - option "Yellow" [ref=e273] [cursor=pointer]
+                - generic [ref=e275]:
+                  - button "Add to Cart" [ref=e278] [cursor=pointer]
+                  - generic [ref=e279]:
+                    - button "Add to Wish List" [ref=e280] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e281]: Add to Wish List
+                    - button "Add to Compare" [ref=e282] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e283]: Add to Compare
+          - listitem [ref=e284]:
+            - generic [ref=e285]:
+              - link "Chloe Compete Tank" [ref=e286] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/chloe-compete-tank.html
+                - img "Chloe Compete Tank" [ref=e289]
+              - generic [ref=e290]:
+                - strong [ref=e291]:
+                  - link "Chloe Compete Tank" [ref=e292] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/chloe-compete-tank.html
+                - generic [ref=e293]:
+                  - generic [ref=e294]:
+                    - generic [ref=e295]: "Rating:"
+                    - generic "73%" [ref=e296]:
+                      - text: 
+                      - generic [ref=e297]:
+                        - text: 
+                        - generic [ref=e298]: 73%
+                  - link "3 Reviews" [ref=e300] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/chloe-compete-tank.html#reviews
+                - generic [ref=e303]:
+                  - text: As low as
+                  - generic [ref=e304]: $39.00
+                - generic [ref=e305]:
+                  - listbox "Size" [ref=e307]:
+                    - option "XS" [ref=e308] [cursor=pointer]
+                    - option "S" [ref=e309] [cursor=pointer]
+                    - option "M" [ref=e310] [cursor=pointer]
+                    - option "L" [ref=e311] [cursor=pointer]
+                    - option "XL" [ref=e312] [cursor=pointer]
+                  - listbox "Color" [ref=e314]:
+                    - option "Blue" [ref=e315] [cursor=pointer]
+                    - option "Red" [ref=e316] [cursor=pointer]
+                    - option "Yellow" [ref=e317] [cursor=pointer]
+                - generic [ref=e319]:
+                  - button "Add to Cart" [ref=e322] [cursor=pointer]
+                  - generic [ref=e323]:
+                    - button "Add to Wish List" [ref=e324] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e325]: Add to Wish List
+                    - button "Add to Compare" [ref=e326] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e327]: Add to Compare
+          - listitem [ref=e328]:
+            - generic [ref=e329]:
+              - link "Nona Fitness Tank" [ref=e330] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/nona-fitness-tank.html
+                - img "Nona Fitness Tank" [ref=e333]
+              - generic [ref=e334]:
+                - strong [ref=e335]:
+                  - link "Nona Fitness Tank" [ref=e336] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/nona-fitness-tank.html
+                - generic [ref=e339]:
+                  - text: As low as
+                  - generic [ref=e340]: $39.00
+                - generic [ref=e341]:
+                  - listbox "Size" [ref=e343]:
+                    - option "XS" [ref=e344] [cursor=pointer]
+                    - option "S" [ref=e345] [cursor=pointer]
+                    - option "M" [ref=e346] [cursor=pointer]
+                    - option "L" [ref=e347] [cursor=pointer]
+                    - option "XL" [ref=e348] [cursor=pointer]
+                  - listbox "Color" [ref=e350]:
+                    - option "Blue" [ref=e351] [cursor=pointer]
+                    - option "Purple" [ref=e352] [cursor=pointer]
+                    - option "Red" [ref=e353] [cursor=pointer]
+                - generic [ref=e355]:
+                  - button "Add to Cart" [ref=e358] [cursor=pointer]
+                  - generic [ref=e359]:
+                    - button "Add to Wish List" [ref=e360] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e361]: Add to Wish List
+                    - button "Add to Compare" [ref=e362] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e363]: Add to Compare
+          - listitem [ref=e364]:
+            - generic [ref=e365]:
+              - link "Helios Endurance Tank" [ref=e366] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/helios-endurance-tank.html
+                - img "Helios Endurance Tank" [ref=e369]
+              - generic [ref=e370]:
+                - strong [ref=e371]:
+                  - link "Helios Endurance Tank" [ref=e372] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/helios-endurance-tank.html
+                - generic [ref=e373]:
+                  - generic [ref=e374]:
+                    - generic [ref=e375]: "Rating:"
+                    - generic "70%" [ref=e376]:
+                      - text: 
+                      - generic [ref=e377]:
+                        - text: 
+                        - generic [ref=e378]: 70%
+                  - link "4 Reviews" [ref=e380] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/helios-endurance-tank.html#reviews
+                - generic [ref=e383]:
+                  - text: As low as
+                  - generic [ref=e384]: $32.00
+                - generic [ref=e385]:
+                  - listbox "Size" [ref=e387]:
+                    - option "XS" [ref=e388] [cursor=pointer]
+                    - option "S" [ref=e389] [cursor=pointer]
+                    - option "M" [ref=e390] [cursor=pointer]
+                    - option "L" [ref=e391] [cursor=pointer]
+                    - option "XL" [ref=e392] [cursor=pointer]
+                  - listbox "Color" [ref=e394]:
+                    - option "Blue" [ref=e395] [cursor=pointer]
+                - generic [ref=e397]:
+                  - button "Add to Cart" [ref=e400] [cursor=pointer]
+                  - generic [ref=e401]:
+                    - button "Add to Wish List" [ref=e402] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e403]: Add to Wish List
+                    - button "Add to Compare" [ref=e404] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e405]: Add to Compare
+          - listitem [ref=e406]:
+            - generic [ref=e407]:
+              - link "Rocco Gym Tank" [ref=e408] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/rocco-gym-tank.html
+                - img "Rocco Gym Tank" [ref=e411]
+              - generic [ref=e412]:
+                - strong [ref=e413]:
+                  - link "Rocco Gym Tank" [ref=e414] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/rocco-gym-tank.html
+                - generic [ref=e417]:
+                  - text: As low as
+                  - generic [ref=e418]: $24.00
+                - generic [ref=e419]:
+                  - listbox "Size" [ref=e421]:
+                    - option "XS" [ref=e422] [cursor=pointer]
+                    - option "S" [ref=e423] [cursor=pointer]
+                    - option "M" [ref=e424] [cursor=pointer]
+                    - option "L" [ref=e425] [cursor=pointer]
+                    - option "XL" [ref=e426] [cursor=pointer]
+                  - listbox "Color" [ref=e428]:
+                    - option "Blue" [ref=e429] [cursor=pointer]
+                - generic [ref=e431]:
+                  - button "Add to Cart" [ref=e434] [cursor=pointer]
+                  - generic [ref=e435]:
+                    - button "Add to Wish List" [ref=e436] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e437]: Add to Wish List
+                    - button "Add to Compare" [ref=e438] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e439]: Add to Compare
+          - listitem [ref=e440]:
+            - generic [ref=e441]:
+              - link "Zoe Tank" [ref=e442] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/zoe-tank.html
+                - img "Zoe Tank" [ref=e445]
+              - generic [ref=e446]:
+                - strong [ref=e447]:
+                  - link "Zoe Tank" [ref=e448] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/zoe-tank.html
+                - generic [ref=e449]:
+                  - generic [ref=e450]:
+                    - generic [ref=e451]: "Rating:"
+                    - generic "53%" [ref=e452]:
+                      - text: 
+                      - generic [ref=e453]:
+                        - text: 
+                        - generic [ref=e454]: 53%
+                  - link "3 Reviews" [ref=e456] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/zoe-tank.html#reviews
+                - generic [ref=e459]:
+                  - text: As low as
+                  - generic [ref=e460]: $29.00
+                - generic [ref=e461]:
+                  - listbox "Size" [ref=e463]:
+                    - option "XS" [ref=e464] [cursor=pointer]
+                    - option "S" [ref=e465] [cursor=pointer]
+                    - option "M" [ref=e466] [cursor=pointer]
+                    - option "L" [ref=e467] [cursor=pointer]
+                    - option "XL" [ref=e468] [cursor=pointer]
+                  - listbox "Color" [ref=e470]:
+                    - option "Green" [ref=e471] [cursor=pointer]
+                    - option "Orange" [ref=e472] [cursor=pointer]
+                    - option "Yellow" [ref=e473] [cursor=pointer]
+                - generic [ref=e475]:
+                  - button "Add to Cart" [ref=e478] [cursor=pointer]
+                  - generic [ref=e479]:
+                    - button "Add to Wish List" [ref=e480] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e481]: Add to Wish List
+                    - button "Add to Compare" [ref=e482] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e483]: Add to Compare
+          - listitem [ref=e484]:
+            - generic [ref=e485]:
+              - link "Bella Tank" [ref=e486] [cursor=pointer]:
+                - /url: https://magento2-demo.magebit.com/bella-tank.html
+                - img "Bella Tank" [ref=e489]
+              - generic [ref=e490]:
+                - strong [ref=e491]:
+                  - link "Bella Tank" [ref=e492] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/bella-tank.html
+                - generic [ref=e493]:
+                  - generic [ref=e494]:
+                    - generic [ref=e495]: "Rating:"
+                    - generic "80%" [ref=e496]:
+                      - text: 
+                      - generic [ref=e497]:
+                        - text: 
+                        - generic [ref=e498]: 80%
+                  - link "2 Reviews" [ref=e500] [cursor=pointer]:
+                    - /url: https://magento2-demo.magebit.com/bella-tank.html#reviews
+                - generic [ref=e503]:
+                  - text: As low as
+                  - generic [ref=e504]: $29.00
+                - generic [ref=e505]:
+                  - listbox "Size" [ref=e507]:
+                    - option "XS" [ref=e508] [cursor=pointer]
+                    - option "S" [ref=e509] [cursor=pointer]
+                    - option "M" [ref=e510] [cursor=pointer]
+                    - option "L" [ref=e511] [cursor=pointer]
+                    - option "XL" [ref=e512] [cursor=pointer]
+                  - listbox "Color" [ref=e514]:
+                    - option "Black" [ref=e515] [cursor=pointer]
+                    - option "Blue" [ref=e516] [cursor=pointer]
+                    - option "Orange" [ref=e517] [cursor=pointer]
+                - generic [ref=e519]:
+                  - button "Add to Cart" [ref=e522] [cursor=pointer]
+                  - generic [ref=e523]:
+                    - button "Add to Wish List" [ref=e524] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e525]: Add to Wish List
+                    - button "Add to Compare" [ref=e526] [cursor=pointer]:
+                      - text: 
+                      - generic [ref=e527]: Add to Compare
+        - generic [ref=e528]:
+          - text:  
+          - generic [ref=e529]:
+            - strong [ref=e530]: Page
+            - list "Page" [ref=e531]:
+              - listitem [ref=e532]:
+                - strong [ref=e533]:
+                  - generic [ref=e534]: You're currently reading page
+                  - text: "1"
+              - listitem [ref=e535]:
+                - link "Page 2" [ref=e536] [cursor=pointer]:
+                  - /url: https://magento2-demo.magebit.com/catalogsearch/result/index/?p=2&q=Argus+All-Weather+Tank
+                  - generic [ref=e537]: Page
+                  - text: "2"
+              - listitem [ref=e538]:
+                - link "Page 3" [ref=e539] [cursor=pointer]:
+                  - /url: https://magento2-demo.magebit.com/catalogsearch/result/index/?p=3&q=Argus+All-Weather+Tank
+                  - generic [ref=e540]: Page
+                  - text: "3"
+              - listitem [ref=e541]:
+                - link "Page 4" [ref=e542] [cursor=pointer]:
+                  - /url: https://magento2-demo.magebit.com/catalogsearch/result/index/?p=4&q=Argus+All-Weather+Tank
+                  - generic [ref=e543]: Page
+                  - text: "4"
+              - listitem [ref=e544]:
+                - link "Page 5" [ref=e545] [cursor=pointer]:
+                  - /url: https://magento2-demo.magebit.com/catalogsearch/result/index/?p=5&q=Argus+All-Weather+Tank
+                  - generic [ref=e546]: Page
+                  - text: "5"
+              - listitem [ref=e547]:
+                - link " Page Next" [ref=e548] [cursor=pointer]:
+                  - /url: https://magento2-demo.magebit.com/catalogsearch/result/index/?p=2&q=Argus+All-Weather+Tank
+                  - text: 
+                  - generic [ref=e549]: Page
+                  - generic [ref=e550]: Next
+          - generic [ref=e551]:
+            - generic [ref=e552]: Show
+            - combobox [ref=e554]:
+              - option "12" [selected]
+              - option "24"
+              - option "36"
+            - text: per page
+          - text: 
+      - generic [ref=e557]:
+        - heading "Shopping Options" [level=2] [ref=e558]
+        - tablist [ref=e559]:
+          - tab "Category " [ref=e560] [cursor=pointer]
+          - text: ( ) ( )
+      - generic [ref=e561]:
+        - generic [ref=e562]:
+          - generic [ref=e563]:
+            - heading "Compare Products" [level=2] [ref=e564]
+            - text: ()
+          - generic [ref=e565]: You have no items to compare.
+        - generic [ref=e566]:
+          - heading "My Wish Lists" [level=2] [ref=e568]
+          - generic [ref=e570]: You have no items in your wish list.
+  - contentinfo [ref=e571]:
+    - generic [ref=e572]:
+      - generic [ref=e575]:
+        - generic [ref=e577]:
+          - text: 
+          - generic [ref=e578]:
+            - generic [ref=e579]: "Sign Up for Our Newsletter:"
+            - textbox "Sign Up for Our Newsletter:" [ref=e580]:
+              - /placeholder: Enter your email address
+        - button "Subscribe" [ref=e582] [cursor=pointer]
+      - list [ref=e585]:
+        - listitem [ref=e586]:
+          - link "About us" [ref=e587] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/about-us/
+        - listitem [ref=e588]:
+          - link "Customer Service" [ref=e589] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/customer-service/
+      - list [ref=e590]:
+        - listitem [ref=e591]:
+          - link "Privacy and Cookie Policy" [ref=e592] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/privacy-policy-cookie-restriction-mode/
+        - listitem [ref=e593]:
+          - link "Search Terms" [ref=e594] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/search/term/popular/
+        - listitem [ref=e595]:
+          - link "Orders and Returns" [ref=e596] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/sales/guest/form/
+        - listitem [ref=e597]:
+          - link "Advanced Search" [ref=e598] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/catalogsearch/advanced/
+        - listitem [ref=e599]:
+          - link "Contact Us" [ref=e600] [cursor=pointer]:
+            - /url: https://magento2-demo.magebit.com/contact/
+  - generic [ref=e601]: Copyright © 2013-present Magento, Inc. All rights reserved.
+```

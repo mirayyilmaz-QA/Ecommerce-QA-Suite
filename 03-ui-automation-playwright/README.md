@@ -9,15 +9,13 @@ The focus of this project is not just automation, but clean structure, reliabili
 ## Key Design
 
 ### Page Object Model (POM)
-Each page has its own class (e.g. `ProductPage`, `CheckoutPage`).  
-This keeps tests clean and makes UI changes easy to maintain.
+Each page has its own class (e.g. `ProductPage`, `CheckoutPage`).  This keeps tests clean and makes UI changes easy to maintain.
 
 ### Page Manager
 Central place that manages all page objects so tests stay focused on user flows, not setup code.
 
 ### Business Flows
-User journeys (like **Guest Checkout**) are written as simple flow methods.  
-Tests read like real user actions instead of technical scripts.
+User journeys (like **Guest Checkout**) are written as simple flow methods.  Tests read like real user actions instead of technical scripts.
 
 ### Data Factory
 Generates new user and shipping data for every test run.  
@@ -45,3 +43,4 @@ npx playwright test --headed
 
 # View report:
 npx allure serve allure-results
+

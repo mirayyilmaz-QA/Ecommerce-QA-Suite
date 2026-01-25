@@ -1,6 +1,7 @@
 # Playwright E2E Automation Framework
 
-This project is a real-world end-to-end (E2E) automation framework built with **Playwright** for the **Magento 2 Open Source** e-commerce platform. It is part of my QA portfolio and demonstrates how I design **stable, readable, and maintainable** test automation for dynamic web applications.
+This project is a real-world end-to-end (E2E) automation framework built with **Playwright** for the **Magento 2 Open Source** e-commerce platform.  
+It is part of my QA portfolio and demonstrates how I design **stable, readable, and maintainable** test automation for dynamic web applications.
 
 The focus of this project is not only automation, but also **clean structure, reliability, and real-world usability**.
 
@@ -44,6 +45,41 @@ Test data (user, address, shipping info) is generated dynamically for each run. 
 ├─ playwright.config.ts
 ├─ package.json
 └─ README.md
+Getting Started
+Install dependencies
+Bash
+cd 03-ui-automation-playwright
+npm install
+Run tests
+Bash
+# Run tests in headless mode
+npx playwright test
 
-## Getting Started
+# Run tests in headed mode
+npx playwright test --headed
+Reports
+Bash
+# Show Playwright HTML report
+npx playwright show-report
+
+# Serve Allure results
+allure serve allure-results
+CI Integration
+This project includes GitHub Actions integration. Tests are automatically executed in CI when code is pushed to the repository using:
+
+.github/workflows/playwright.yml
+
+Purpose
+This project is part of my QA engineering portfolio and demonstrates:
+
+Real-world automation design
+
+Scalable framework structure
+
+Maintainability
+
+Stability-focused testing
+
+CI-ready automation
+
 

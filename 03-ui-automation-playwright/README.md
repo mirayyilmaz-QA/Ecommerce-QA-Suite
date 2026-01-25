@@ -51,6 +51,19 @@ This avoids duplicated users and test data conflicts.
 
 ---
 
+## Tech Stack
+
+- **Language:** TypeScript  
+- **Framework:** Playwright  
+- **Test Architecture:** Page Object Model (POM), Flow-based design  
+- **Test Runner:** Playwright Test  
+- **Reporting:** Playwright HTML Report, Allure  
+- **CI:** GitHub Actions  
+- **Data Handling:** Dynamic test data generation (Data Factory pattern)  
+- **Target Platform:** Magento 2 Open Source
+  
+--- 
+
 ## Getting Started
 
 ## Install dependencies
@@ -94,6 +107,7 @@ This project is part of my QA engineering portfolio and demonstrates:
 * CI-ready automation
 
 This is not a tutorial-style demo project.  It is designed as a production-style automation framework following real-world QA practices.
+
 
 
 

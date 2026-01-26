@@ -1,7 +1,6 @@
 # Ecommerce QA Suite
 A comprehensive end-to-end quality engineering project for a modern e-commerce platform, covering Manual, API, UI Automation, Performance, and Database testing.
 
-## Target Platform: Magento 2 
 ## Target Platform: Magento 2  
 For this project, I selected the [Magento 2 Open Source](https://magento2-demo.magebit.com/) platform as the primary testing target for real-world e-commerce automation scenarios.
 

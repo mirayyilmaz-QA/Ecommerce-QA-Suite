@@ -6,7 +6,7 @@ My background in IT recruitment provides me with a unique perspective on team dy
 
 ## Repository Structure
 * **Requirements/**: User stories to handle edge cases and business rules.
-* **Test-Plans/**: High-level strategy for the testing cycle.
+* **Test-Plan/**: High-level strategy for the testing cycle.
 * **Test-Cases/**: Detailed steps, expected results, and pass/fail status.
 * **Bug-Reports/**: Documented defects with severity and reproduction steps.
 * **Traceability-Matrix/**: Mapping requirements to test cases to ensure 100% coverage.

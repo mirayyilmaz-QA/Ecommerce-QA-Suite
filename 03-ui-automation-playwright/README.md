@@ -1,6 +1,6 @@
 # Playwright E2E Automation Framework
 
-This project is a real-world end-to-end (E2E) automation framework built with Playwright for the [Magento 2 Open Source](https://magento2-demo.magebit.com/) e-commerce platform.  
+This project is a real-world end-to-end (E2E) automation framework built with **Playwright** for the [Magento 2 Open Source](https://magento2-demo.magebit.com/) e-commerce platform.  
 It is part of my QA portfolio and demonstrates how I design stable, readable, and maintainable test automation for dynamic web applications.
 
 The focus of this project is not only automation, but also clean structure, reliability, and real-world usability.

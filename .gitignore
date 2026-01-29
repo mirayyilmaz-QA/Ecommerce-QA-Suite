@@ -15,6 +15,3 @@ node_modules/
 .DS_Store
 **/.DS_Store
 
-#Other projects
-01-manual-testing/
-02-sql-database-testing/

@@ -1,0 +1,4 @@
+16:42:18 Uncaught TypeError: Cannot read properties of undefined (reading 'images')
+   	 at updateGallery (product-gallery.js:214)
+    	 at onSwatchClick (swatch-renderer.js:98)
+    	 at HTMLDivElement.<anonymous> (swatch-renderer.js:56)

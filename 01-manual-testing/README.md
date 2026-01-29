@@ -5,11 +5,11 @@ This portfolio showcases a comprehensive E2E manual testing project on the Magen
 My background in IT recruitment provides me with a unique perspective on team dynamics and project requirements, which I now apply to ensuring high-quality software delivery through rigorous QA methodologies.
 
 ## Repository Structure
-* **Requirements/**: User stories to handle edge cases and business rules.
-* **Test-Plan/**: High-level strategy for the testing cycle.
-* **Test-Cases/**: Detailed steps, expected results, and pass/fail status.
-* **Bug-Reports/**: Documented defects with severity and reproduction steps.
-* **Traceability-Matrix/**: Mapping requirements to test cases to ensure 100% coverage.
+* **Requirements/**: User stories to handle edge cases and business rules. (docs)
+* **Test-Plan/**: High-level strategy for the testing cycle. (docs)
+* **Test-Cases/**: Detailed steps, expected results, and pass/fail status. (test-artifacts)
+* **Bug-Reports/**: Documented defects with severity and reproduction steps. (bug-reports)
+* **Traceability-Matrix/**: Mapping requirements to test cases to ensure 100% coverage. (test-artifacts)
 
 ## Key User Stories Tested
 * Guest Checkout with Inventory Validation

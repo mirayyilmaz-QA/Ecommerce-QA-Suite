@@ -1,0 +1,98 @@
+Req ID,Scenario,Test Case ID,Test Case Title,Preconditions,Steps,Expected Result,Actual Result,Priority,Status,Bug ID
+REQ-01,A: Inventory,TC-001,Inventory Validation – Last Available Item,"-Tester has access to Magento Admin Panel.
+-Product “Radiant Tee” has stock quantity = 1 (verified via Admin Panel).
+-Product is visible on storefront","1. Navigate to the product detail page of the selected product
+2. Verify low-stock indication is displayed (“Only 1 left in stock”)
+3. Add product to cart
+4. Complete checkout as a guest
+5. Return to product detail page","-Product status becomes ""Out of Stock"".
+-“Add to Cart” button is disabled.","-Product status changed to Out of Stock.
+-“Add to Cart” button was disabled and product could not be added again.",High,Pass,
+REQ-01,A: Inventory,TC-002,Inventory Validation: Oversell,"-Tester has access to Magento Admin Panel.
+-Product 'Fusion Backpack' has a limited stock (Qty=3). 
+","1. Navigate to the PDP.
+2. Enter a quantity higher than available ('4').
+3. Click 'Add to Cart'.
+4. Go to Cart and try to increase quantity there as well.","-Error message: ""The requested qty is not available"".
+-Product is NOT added to cart with the invalid quantity.
+-Cart update is rejected.
+","-Verified Admin settings (Manage Stock: Yes, Backorders: No). 
+System failed to trigger ""out of stock"" validation; allowed adding Qty 4 when only 3 were available. 
+Linked to Bug ID: BUG-001.",High,Fail,BUG-001
+REQ-01,B: Coupons,TC-003,Valid Discount Code,-A valid discount code ('20OFF') is active in the backend.,"1. Add items to the cart.
+2. Go to Checkout.
+3. Expand 'Apply Discount Code'.
+4. Enter '20OFF' and apply.",-Grand Total is correctly %20 reduced.,Order Total' was reduced by 20% on the payment cart.,High,Pass,
+REQ-01,B: Coupons,TC-004,Expired Discount Code,"-An expired is known (e.g., '60OFF').","1. Add items to cart.
+2. Go to Checkout.
+3. Expand 'Apply Discount Code'.
+4. Enter '60OFF' and 'Apply'.","-Error message: ""Coupon code is not valid"".
+-No discount is applied to the total.","-No discount was applied, 
+and the valid error message was visible.",Low,Pass,
+REQ-01,C: Account,TC-005,Guest-to-Customer Mapping,"-User is a Guest.
+-Email used is not registered.
+-User is on the Success Page.","1. Complete Guest Checkout.
+2. Click 'Create an Account' on the success page.
+3. Set a password and finish registration.","-User is redirected to the dashboard.
+-The Guest order is automatically visible in 'My Orders'.","-After account creation, the page redirected
+to the 'My Account' dashboard, and order details were visible",Medium,Pass,
+REQ-01,C: Account,TC-006,Guest Checkout - Login Prompt,"-An account already exists for 'test@example.com'. 
+-User is checking out as Guest.","1. Add item to cart and go to Checkout.
+2. Enter the registered email in the Email field.
+3. Move to the next field.","-System identifies the email.
+-""You already have an account"" message appears.","-System recognized existing email and did not allow user 
+account creation again by blocking the create account page.",Medium,Pass,
+,,,,,,,,,,
+REQ-02,A: UI Layout,TC-007,Side-by-Side Comparison,"-At least two products exist
+with different attributes (e.g., Price, Material, Activity).","1. Navigate to the PDP of ""Push It Messenger Bag"".
+2. Click 'Add to Compare' to add item to compare list.
+3. Navigate to the PDP of ""Driven Backpack"".
+4. Click 'Add to Compare' to add item to compare list
+5. Click 'Compare Products' to open Comparison Page.","-Both products appear in a grid; 
+attributes (Price, Material) align horizontally.
+-""Add to Cart"" button is visible for both.","-Products appeared in a grid;
+ price and material aligned horizontally.
+-""Add to Cart"" button was visible for both.",High,Pass,
+REQ-02,B: Session,TC-008,Comparison Persistency,"-Browser cookies/cache are enabled. 
+-Items are in the compare list.","1. Add items to compare list.
+2. Close the browser tab or window.
+3. Re-open the Magento demo URL.","-The ""Compare Products"" sidebar still lists 
+the previously added items.
+-Navigating back to the comparison page shows 
+the data is saved in the session.","-After the close-reopen browser action, 
+the comparison table was still available as before.",Medium,Pass,
+,,,,,,,,,,
+REQ-03,A: UI Sync,TC-009,Image/Swatch Sync,"-A configurable product (""Stellar Solar Jacket"") has different images for different colors.","1. Select ""Blue"" color swatch.
+2. Select ""Orange"" color swatch.","-The main product image changes to match 
+the selected color.","-On PDP, for the ""Stellar Solar Jacket,"" the main product image 
+does not consistently update when different color swatches are selected. ",Medium,Fail,BUG-002
+REQ-03,B: Pricing,TC-010,Attribute Price Change,-A product has a price surcharge for larger sizes (XL is +$5).,"1. Select Size S (Standard price).
+2. Select Size XL.","-The price on the page updates dynamically to 
+the higher price.","-The price on the page updates dynamically to 
+the higher price.",High,Pass,
+REQ-03,C: Validation,TC-011,Missing Selection Error,"-User is on the PDP of ""Joise Yoga Jacket""","1. Leave Size and Color unselected.
+2. Click ""Add to Cart"".","-Error message appears: ""This is a required field.""
+-Product is NOT added to cart.","-""This is a required field."" error message was displayed, 
+and 'Add to Cart' button was disabled.",High,Pass,
+,,,,,,,,,,
+REQ-04,A: Trigger,TC-012,Discount Trigger Point,"-A product has ""Tier Pricing"" (Buy 3 Tees, get 4th free).","1. Add 3 units of item from Tees products
+2. Change quantity to 4 (Discount threshold).
+3. Go to Checkout.",-Individual unit price drops; subtotal updates correctly.,"-Some products in the category correctly calculate the discount, 
+while others remain at full price.
+Linked to Bug ID: BUG-003.",High,Fail,BUG-003
+REQ-04,B: Calculation,TC-013,Mixed Cart Pricing,-A product has tier pricing; another does not.,"1. Add 5 discounted items: ""Tiffany Fitness Tee""
+2. Add 1 regular-priced item: ""Breathe-Easy Tank""
+3. Go to Checkout and apply discount code.","-Discount applies only to the specific bulk product,
+ not the whole cart.","-Discount was applied only to discounted products; 
+regular price items were calculated separately in the cart.",High,Pass,
+,,,,,,,,,,
+REQ-05,A: Filter Logic,TC-014,Multi-Filter Application,-There are multiple jackets in various colors and prices.,"1. Search for ""Jacket"".
+2. Apply Filter ""Color: Blue"".
+3. Apply Filter ""Price: $50-$60"".","-Result count decreases with each filter applied.
+-Only products meeting all three criteria are visible 
+","-Only blue jackets within that price range were displayed, 
+which meet all criteria.",High,Pass,
+REQ-05,B: Accuracy,TC-015,Partial Match Search,"-Product ""Backpack"" exists in the catalog.","1. Search for a partial word (""Backp"").","-Search results for ""Backp"" is displayed.","-System used ""like"" logic and returned ""Driven Backpack"" 
+and ""Wayfarer Messenger Bag""",Medium,Pass,
+REQ-05,C: Negative,TC-016,Zero Results Handling,-No products match the search term.,"1. Search for a nonsensical string (""XYZ123ABC"").","Message: ""Your search returned no results"" appears.","-No match found, and  ""Your search returned no results""
+ error message was displayed.",Low,Pass,

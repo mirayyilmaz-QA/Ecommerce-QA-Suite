@@ -1,8 +1,7 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { BasePage } from './BasePage';
 
-/* ----------- Data Model ----------- */
-
+// Data Model:
 export interface AccountData {
     fName: string;
     lName: string;

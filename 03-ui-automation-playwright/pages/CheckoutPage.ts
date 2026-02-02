@@ -15,11 +15,10 @@ export interface ShippingDetails {
     phone: string;
 }
 
-/* ----------- Page Object ----------- */
+
 
 export class CheckoutPage extends BasePage {
 
-    /* ----------- Locators ----------- */
 
     private readonly loadingOverlay: Locator;
 
@@ -77,7 +76,7 @@ export class CheckoutPage extends BasePage {
     //Actions
 
     async fillShippingDetails(details: ShippingDetails) {
-        // 1. Wait for the checkout container to be fully 'hydrated'
+        // 1. Wait for the checkout container 
         await this.page.waitForSelector('#shipping', { state: 'visible' });
         await this.waitForMagentoReady();
 
@@ -143,7 +142,7 @@ export class CheckoutPage extends BasePage {
         await this.placeOrderBtn.click({ force: true });
 
         // Wait for the order ID to appear on the success page
-        await this.orderId.waitFor({ state: 'visible', timeout: 20000 });
+        //await this.orderId.waitFor({ state: 'visible', timeout: 20000 });
     }
 
 }

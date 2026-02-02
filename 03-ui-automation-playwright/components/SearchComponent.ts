@@ -9,12 +9,14 @@ export class SearchComponent {
         this.searchInput = page.locator('#search');
     }
 
-    async search(productName: string) {
+    async search(productName: string): Promise<void> {
         await this.searchInput.waitFor({ state: 'visible', timeout: 15000 });
         await this.searchInput.fill(productName);
         await this.searchInput.press('Enter');
 
-        // Wait for product grid page
-        await this.page.waitForSelector('.products-grid', { timeout: 15000 });
+        // Wait for product grid page, if no-result: added css class for "no result" container
+        await this.page.waitForSelector('.products-grid, .message.notice', { timeout: 15000 });
+
+        //await this.page.locator('.products-grid').waitFor({ state: 'visible' }); flaky
     }
 }

@@ -20,7 +20,12 @@ test.describe('Magento Checkout', () => {
 
         await flows.registeredCheckout();
 
+        const orderIdLocator = pm.checkout.orderId;
+
         await expect(pm.checkout.orderId).toBeVisible({ timeout: 20000 });
-        console.log('Registered Order:', await pm.checkout.orderId.textContent());
+
+        const orderNumber = await orderIdLocator.textContent();
+        console.log('Registered Order:', orderNumber?.trim());
+        //console.log('Registered Order:', await pm.checkout.orderId.textContent());
     });
 });

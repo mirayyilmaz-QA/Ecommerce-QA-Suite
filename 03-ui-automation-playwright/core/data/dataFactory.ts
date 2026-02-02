@@ -7,6 +7,8 @@ function pickRandomProduct() {
 
 export function createCheckoutData() {
     const rawProduct = pickRandomProduct();
+    const guestUser = createGuestUser();
+    const registeredUser = createRegisteredUser();
 
     return {
         product: {
@@ -16,12 +18,15 @@ export function createCheckoutData() {
         },
 
         guest: {
-            shipping: createGuestUser()
+            shipping: guestUser
         },
 
+
+
+        //I fixed here generating two different users' data for account and for shipping
         registered: {
-            account: createRegisteredUser().account,
-            shipping: createRegisteredUser().shipping
+            account: registeredUser.account,
+            shipping: registeredUser.shipping
         }
     };
 }

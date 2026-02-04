@@ -15,8 +15,9 @@ export class SearchComponent {
         await this.searchInput.press('Enter');
 
         // Wait for product grid page, if no-result: added css class for "no result" container
-        await this.page.waitForSelector('.products-grid, .message.notice', { timeout: 15000 });
+        //await this.page.waitForSelector('.products-grid, .message.notice', { timeout: 15000 });
 
-        //await this.page.locator('.products-grid').waitFor({ state: 'visible' }); flaky
+        await this.page.locator('.products-grid, .message.notice').waitFor({ state: 'visible' });
+        //flaky?
     }
 }

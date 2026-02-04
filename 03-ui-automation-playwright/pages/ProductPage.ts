@@ -30,8 +30,11 @@ export class ProductPage {
         const colorOption = productCard.locator(`.swatch-option.color[aria-label="${color}"]`);
 
         // Click with force to handle that 'div.columns' interception we saw earlier
-        await sizeOption.click({ force: true });
-        await colorOption.click({ force: true });
+        await sizeOption.waitFor({ state: 'visible' });
+        await sizeOption.click();
+
+        await colorOption.waitFor({ state: 'visible' });
+        await colorOption.click();
     }
 
 
@@ -41,7 +44,8 @@ export class ProductPage {
 
         // Is the button actually interactive?
         await productCard.hover();
-        await expect(addToCartBtn).toBeEnabled({ timeout: 10000 });
+        await expect(addToCartBtn).toBeVisible();
+        await expect(addToCartBtn).toBeEnabled();
 
         // Listener before the click
         const responsePromise = this.page.waitForResponse(resp =>
@@ -50,11 +54,9 @@ export class ProductPage {
         );
 
         // I tried a standard click first. If it fails, then fallback to force.
-        try {
-            await addToCartBtn.click({ timeout: 5000 });
-        } catch (e) {
+        await addToCartBtn.click().catch(async () => {
             await addToCartBtn.click({ force: true });
-        }
+        });
 
         // network confirmation
         await responsePromise;

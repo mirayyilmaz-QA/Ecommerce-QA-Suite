@@ -23,7 +23,7 @@ export function createCheckoutData() {
 
 
 
-        //I fixed here generating two different users' data for account and for shipping
+        //Not generating two different users' data for account and for shipping
         registered: {
             account: registeredUser.account,
             shipping: registeredUser.shipping

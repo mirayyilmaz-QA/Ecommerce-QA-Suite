@@ -17,6 +17,9 @@ This keeps tests clean and makes UI changes easy to maintain.
 A central manager that controls all page objects.  
 Tests focus on business flows instead of technical setup logic.
 
+### BasePage & Inheritance
+A foundational class that handles common e-commerce logic like loader masks, network synchronization, and global navigation. All page objects inherit these resilient behaviors.
+
 ### Business Flows
 User journeys ( **Guest Checkout** , **Registered User Checkout** ) are written as readable flow methods.  
 Tests describe real user behavior instead of low-level technical steps.
@@ -27,8 +30,14 @@ This avoids duplicated users and test data conflicts.
 
 ---
 
-## Stability Strategy
+## Stability Strategy & Resilience Strategy
 
+E-commerce platforms like Magento are notoriously flaky due to heavy JavaScript hydration (Knockout.js). This framework implements:
+
+* **Asynchronous State Guards:** Uses custom `waitForPageToSettle` methods to synchronize with Magento's internal state beyond simple page loads.
+* **Intelligent Retries (toPass):** Implements Playwright's `toPass` logic for critical transitions (e.g., Mini-cart and Shipping-to-Payment) to handle intermittent UI "flickers" and DOM re-renders.
+* **Precise Actionability Checks:** Combines `waitForResponse` (network layer) with `toBeEnabled` (UI layer) to ensure the framework never clicks a button before the backend is ready.
+* **Cross-Browser Reliability:** Specific optimizations for Firefox's rendering engine to prevent race conditions during checkout navigation.
 * Background activity handling using real UI signals (loaders, masks, spinners)
 * Precise element selection to avoid wrong interactions (e.g. `S` vs `XS`)
 * Reliable interactions with overlays and blocked elements
@@ -75,20 +84,20 @@ npm install
 ## Run tests
 
 ### Run tests in headless mode
-npx playwright test
+```npx playwright test```
 
 ### Run tests in headed mode
-npx playwright test --headed
+```npx playwright test --headed```
 
 ---
 
 ## Reports
 
 ### Show Playwright HTML report
-npx playwright show-report
+```npx playwright show-report```
 
 ### Serve Allure results
-allure serve allure-results
+```allure serve allure-results```
 
 ---
 

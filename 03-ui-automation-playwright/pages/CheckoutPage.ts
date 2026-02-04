@@ -1,8 +1,7 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
 
-/* ----------- Data Models ----------- */
-
+// Data Model:
 export interface ShippingDetails {
     email?: string;
     fName?: string;
@@ -76,7 +75,12 @@ export class CheckoutPage extends BasePage {
     //Actions
 
     async fillShippingDetails(details: ShippingDetails) {
-        // 1. Wait for the checkout container 
+
+        //To overcome firefox from looking for #shipping on previous page
+
+        await expect(this.page).toHaveURL(/checkout\/#/i, { timeout: 10000 });
+
+        //Wait for the checkout container 
         await this.page.waitForSelector('#shipping', { state: 'visible' });
         await this.waitForMagentoReady();
 
@@ -119,30 +123,47 @@ export class CheckoutPage extends BasePage {
         await this.postcode.fill(details.zip);
         await this.telephone.fill(details.phone);
 
-        //Shipping Method 
-        // Wait for at least one shipping method to be available  
+        //Shipping Method: Wait for at least one shipping method to be available  
         const shippingRadio = this.page.locator('.table-checkout-shipping-method input[type="radio"]').first();
         await shippingRadio.waitFor({ state: 'visible', timeout: 10000 });
 
-        // Using force: true because of potential transparent overlays during recalc
-        await shippingRadio.check({ force: true });
+
+        // I use expect().toPass() to retry the click if the site "flickers"
+        await expect(async () => {
+            await shippingRadio.check({ force: true }); // I try to check it
+
+            // To verify it stayed checked. If this fails, the loop runs again until it passes or times out.
+            await expect(shippingRadio).toBeChecked({ timeout: 1000 });
+        }).toPass({
+            intervals: [500], // Wait 500ms between attempts
+            timeout: 10000    // Give up after 10 seconds
+        });
 
         await this.waitForMagentoReady();
     }
 
     async completeCheckout() {
-        // Moving to Payment - Wait for 'Next' to be truly interactive
-        await this.nextBtn.waitFor({ state: 'visible' });
-        await this.nextBtn.click();
+
+        await this.waitForMagentoReady(); ////loaders are gone before we even look at 'Next'
+
+        await expect(async () => {
+            await this.nextBtn.scrollIntoViewIfNeeded(); //helps Firefox
+            await expect(this.nextBtn).toBeEnabled({ timeout: 2000 });
+
+            await this.nextBtn.click();
+
+            await expect(this.placeOrderBtn).toBeVisible({ timeout: 5000 });
+        }).toPass({
+            intervals: [2000],
+            timeout: 15000
+        });
 
         await this.waitForMagentoReady();
+        await this.placeOrderBtn.click();
 
-        // Place Order - Sometimes there's a final layout shift here
-        await this.placeOrderBtn.waitFor({ state: 'visible' });
-        await this.placeOrderBtn.click({ force: true });
+        // Wait for order confirmation
+        await expect(this.orderId).toBeVisible({ timeout: 20000 });
 
-        // Wait for the order ID to appear on the success page
-        //await this.orderId.waitFor({ state: 'visible', timeout: 20000 });
     }
 
 }

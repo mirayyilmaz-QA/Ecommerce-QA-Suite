@@ -52,6 +52,4 @@ export class PageManager {
         return this._searchComponent
     }
 
-
-
 }

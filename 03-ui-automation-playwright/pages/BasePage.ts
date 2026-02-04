@@ -2,14 +2,16 @@ import { Page, expect } from '@playwright/test';
 
 export class BasePage {
     protected page: Page;
+    private readonly loadingMask;
 
     constructor(page: Page) {
         this.page = page;
+        this.loadingMask = this.page.locator('.loader img, .loading-mask');
     }
 
     async goto(url: string) {
         // 'commit' is faster and less prone to timeout than 'domcontentloaded'
-        await this.page.goto(url, { waitUntil: 'commit' });
+        await this.page.goto(url, { waitUntil: 'domcontentloaded' });
     }
 
     async openMiniCartAndCheckout() {
@@ -26,21 +28,19 @@ export class BasePage {
         }).toPass({ intervals: [1000], timeout: 15000 });
 
 
-        await checkoutBtn.click({ force: true });
+        await checkoutBtn.click();
     }
 
     async waitForPageToSettle() {
-        const loader = this.page.locator('.loader img, .loading-mask');
 
         // Wait for loaders to disappear
-        await loader.waitFor({ state: 'hidden', timeout: 10000 }).catch(() => { });
+        await this.loadingMask.waitFor({ state: 'hidden', timeout: 10000 }).catch(() => { });
 
         //Wait for the body to be visible and stable
         await this.page.locator('body').waitFor({ state: 'visible' });
 
-        // wait for a specific 'state' indicator 
-        // A short 500ms sleep is more reliable than a 30s networkidle timeout.
-        await this.page.waitForTimeout(500);
+        // wait for a specific state indicating page load completion
+        await this.page.waitForLoadState('load');
     }
 
 

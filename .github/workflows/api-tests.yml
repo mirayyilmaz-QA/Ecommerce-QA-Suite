@@ -1,0 +1,39 @@
+name: API Regression Suite
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    timeout-minutes: 10 # API tests should be fast!
+    runs-on: ubuntu-latest
+    
+    # This tells GitHub to run all steps inside your subfolder
+    defaults:
+      run:
+        working-directory: 04-api-testing/playwright-api
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+        cache: 'npm'
+        cache-dependency-path: 04-api-testing/playwright-api/package-lock.json
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run Playwright API tests
+      run: npx playwright test
+
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: api-playwright-report
+        path: 04-api-testing/playwright-api/playwright-report/
+        retention-days: 30

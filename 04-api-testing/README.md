@@ -30,7 +30,7 @@ I ported the Postman logic into a programmatic suite to show I can scale testing
 
 ---
 
-## 📈 Technical Decision: Why Playwright/TS?
+## Technical Decision: Why Playwright/TS?
  I chose **Playwright with TypeScript** for this portfolio to align with the industry shift toward unified testing frameworks. This demonstrates my ability to contribute to a "Full-Stack" QA environment where UI and API tests share the same language and ecosystem.
 
 ---

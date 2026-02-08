@@ -1,0 +1,64 @@
+{
+	"id": "b24e5352-19ee-44d8-bcd9-6c19b42cf0fe",
+	"name": "FakeStore-Prod",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "https://fakestoreapi.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXIiOiJtb3JfMjMxNCIsImlhdCI6MTc3MDU1NjQ5NX0.81EIqCL5LJnEhItR-wIfqLYNv2rxY2ultYX1DJK6S4s",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "currentCartId",
+			"value": 11,
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "productPrice",
+			"value": 695,
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "productId",
+			"value": 5,
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "officialPrice",
+			"value": 39.99,
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "targetProductId",
+			"value": 17,
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "testUsername",
+			"value": "mor_2314",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "testPassword",
+			"value": "83r5^_",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-02-08T15:24:16.125Z",
+	"_postman_exported_using": "Postman/11.83.5"
+}

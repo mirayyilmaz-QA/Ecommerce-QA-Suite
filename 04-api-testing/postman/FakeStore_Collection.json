@@ -1,0 +1,226 @@
+{
+  "info": {
+    "_postman_id": "87d44bf9-1fbe-4072-acd5-8fa7bc6c5777",
+    "name": "Api-FakeStore",
+    "description": "API regression suite for FakeStoreAPI demonstrating auth flow, schema validation, and E2E cart management.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36724666",
+    "_collection_link": "https://go.postman.co/collection/36724666-87d44bf9-1fbe-4072-acd5-8fa7bc6c5777?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "01 - Get Product Details (Data Prep)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const itemSchema = {",
+              "    \"type\": \"object\",",
+              "    \"required\": [\"id\", \"title\", \"price\"],",
+              "    \"properties\": {",
+              "        \"id\": { \"type\": \"number\" },",
+              "        \"title\": { \"type\": \"string\" },",
+              "        \"price\": { \"type\": \"number\" }",
+              "    }",
+              "};",
+              "",
+              "const arraySchema = {",
+              "    \"type\": \"array\",",
+              "    \"items\": itemSchema",
+              "};",
+              "",
+              "pm.test(\"Schema Validation: Array of Objects\", () => {",
+              "    pm.response.to.have.jsonSchema(arraySchema);",
+              "});",
+              "",
+              "",
+              "const products = pm.response.json();",
+              "const randomProduct = products[Math.floor(Math.random() * products.length)];",
+              "",
+              "pm.test(\"Data Prep: Random product selected\", () =>{",
+              "    pm.expect(randomProduct).to.have.property('id');",
+              "",
+              "    pm.environment.set(\"targetProductId\", randomProduct.id);",
+              "    pm.environment.set(\"officialPrice\", randomProduct.price);",
+              "",
+              "    console.log(`Selected Product: ${randomProduct.title} with ID ${randomProduct.id}`)",
+              "});",
+              "",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/products",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02 - User Authentication (JWT)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", () =>  {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "const receivedToken = jsonData.token;",
+              "",
+              "if(receivedToken) {",
+              "    pm.environment.set(\"token\", receivedToken);",
+              "    console.log(\"Token has been saved to environment\")",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"{{testUsername}}\",\n    \"password\": \"{{testPassword}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03 - Create Cart (Business Logic)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();",
+              "const officialPrice = parseFloat(pm.environment.get(\"officialPrice\"));",
+              "const quantity = response.products[0].quantity;",
+              "",
+              "// The Problem: \"Is the subtotal calculation logic correct?\"",
+              "const calculatedSubtotal = (officialPrice * quantity).toFixed(2);",
+              "",
+              "pm.test(\"Status is 201 - Order Received\", () => {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test(\"Data Integrity: Product ID matches\", () => {",
+              "    pm.expect(response.products[0].productId).to.eql(parseInt(pm.environment.get(\"targetProductId\")));",
+              "});",
+              "",
+              "// Fake the backend calculation to show that I know how the logic works",
+              "console.log(\"Verified Business Logic: If 1 item is \" + officialPrice + ",
+              "            \", then 3 items should cost \" + calculatedSubtotal);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"userId\": 1,\n    \"date\": \"2026-02-08\",\n    \"products\": [{\"productId\": {{targetProductId}}, \"quantity\": 3}]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/carts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "carts"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

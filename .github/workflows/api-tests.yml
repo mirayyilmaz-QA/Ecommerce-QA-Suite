@@ -10,7 +10,6 @@ jobs:
     timeout-minutes: 10 
     runs-on: ubuntu-latest
     
-    
     defaults:
       run:
         working-directory: 04-api-testing/playwright-api

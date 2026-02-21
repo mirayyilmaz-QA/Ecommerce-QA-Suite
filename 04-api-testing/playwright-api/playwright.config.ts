@@ -1,28 +1,23 @@
-// playwright.config.ts
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
+  testDir: './tests',
+
   use: {
-    baseURL: 'https://fakestoreapi.com', // environment variable!
-    extraHTTPHeaders: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
+    baseURL: 'https://dummyjson.com'
   },
 
   projects: [
     {
-      name: 'chromium',
+      name: 'setup',
+      testMatch: /auth\.setup\.ts/
+    },
+    {
+      name: 'ecom-api',
+      dependencies: ['setup'],
       use: {
-        browserName: 'chromium',
-        headless: true,
-        screenshot: 'on-first-failure',
-        trace: 'retain-on-failure',
-
-
+        storageState: '.auth/user.json'
       }
     }
   ]
-
-
 });

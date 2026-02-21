@@ -15,7 +15,7 @@ export default defineConfig({
   ],
 
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 1,
+  retries: process.env.CI ? 2 : undefined,
   workers: process.env.CI ? 1 : 1,
 
   use: {
@@ -33,11 +33,6 @@ export default defineConfig({
     {
       name: 'chromium',
       use: {
-        browserName: 'chromium',
-        headless: true,
-        screenshot: 'on-first-failure',
-        trace: 'retain-on-failure',
-
         ...devices['Desktop Chrome'],
       }
     },
@@ -46,10 +41,12 @@ export default defineConfig({
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] }
     },
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] }
-    // }
+
+    ...(process.env.CI ? [{
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    }] : []),
+
   ],
 
 

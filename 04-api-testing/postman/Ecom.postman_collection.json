@@ -1,0 +1,544 @@
+{
+  "info": {
+    "_postman_id": "c6ea677f-03d4-4730-a182-9bca8208ef62",
+    "name": "Ecom",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36724666",
+    "_collection_link": "https://go.postman.co/collection/36724666-c6ea677f-03d4-4730-a182-9bca8208ef62?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Status is 200\", () => ",
+              "    pm.response.to.have.status(200),",
+              ");",
+              "pm.test(\"Token exists\", () =>{",
+              "    pm.expect(jsonData).to.have.property(\"accessToken\");",
+              "    pm.expect(jsonData.accessToken).to.be.a(\"string\").and.not.empty;",
+              "});",
+              "",
+              "pm.environment.set(\"accessToken\", jsonData.accessToken); ",
+              "pm.environment.set(\"userId\", jsonData.id);",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "packages": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"{{testUser}}\",\n    \"password\": \"{{testPass}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Active User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Status is 200\", () => {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"User ID matches login ID\",  () => {",
+              "    pm.expect(jsonData.id).to.eql(parseInt(pm.environment.get(\"userId\")));",
+              "});",
+              "",
+              "pm.test(\"User fields are valid\", () => {",
+              "    pm.expect(jsonData.email).to.be.a(\"string\").and.not.empty;",
+              "    pm.expect(jsonData.username).to.be.a(\"string\").and.not.empty;",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "packages": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/auth/me",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Products",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "const productSchema = {",
+              "    type: \"object\",",
+              "    required: [\"products\"],",
+              "    properties: {",
+              "        products: {",
+              "            type: \"array\",",
+              "            minItems: 1,",
+              "            items: {",
+              "                type: \"object\",",
+              "                required: [",
+              "                    \"id\",",
+              "                    \"title\",",
+              "                    \"price\",",
+              "                    \"discountPercentage\",",
+              "                    \"stock\"",
+              "                ],",
+              "                properties: {",
+              "                    id: { type: \"number\" },",
+              "                    title: { type: \"string\" },",
+              "                    price: { type: \"number\", minimum: 0 },",
+              "                    discountPercentage: { type: \"number\", minimum: 0, maximum: 100 },",
+              "                    stock: { type: \"number\", minimum: 0 }",
+              "                }",
+              "            }",
+              "        }",
+              "    }",
+              "};",
+              "",
+              "pm.test(\"Status code is 200\", () => {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Products response matches schema\",  () => {",
+              "    pm.response.to.have.jsonSchema(productSchema);",
+              "});",
+              "",
+              "pm.test(\"Products array is not empty\",  () => {",
+              "    pm.expect(jsonData.products).to.be.an(\"array\").that.is.not.empty;",
+              "});",
+              "",
+              "const selectedProducts = jsonData.products.slice(0,2)",
+              "",
+              "selectedProducts.forEach((product, i) =>{",
+              "    pm.environment.set(`product${i + 1}_id`, product.id);",
+              "    pm.environment.set(`product${i + 1}_price`, product.price);",
+              "    pm.environment.set(`product${i + 1}_discount`, product.discountPercentage);",
+              "    pm.environment.set(`product${i + 1}_stock`, product.stock);",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/products",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Cart",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// Generate realistic quantity (1–3)",
+              "const quantity1 = Math.floor(Math.random() * 3) + 1;",
+              "const quantity2 = Math.floor(Math.random() * 3) + 1;",
+              "",
+              "// Edge case quantity",
+              "const highQuantity = 100;",
+              "",
+              "// Save variables",
+              "pm.environment.set(\"quantity1\", quantity1);",
+              "pm.environment.set(\"quantity2\", quantity2);",
+              "pm.environment.set(\"highQuantity\", highQuantity);",
+              "",
+              "console.log(\"Generated quantities:\", {",
+              "    quantity1,",
+              "    quantity2,",
+              "    highQuantity",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const requestBody = JSON.parse(pm.request.body.raw);",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.environment.set(\"cartId\", jsonData.id);",
+              "",
+              "const products = [",
+              "    {",
+              "        price: parseFloat(pm.environment.get(\"product1_price\")),",
+              "        discount: parseFloat(pm.environment.get(\"product1_discount\")),",
+              "        stock: parseInt(pm.environment.get(\"product1_stock\")),",
+              "        quantity: parseInt(pm.environment.get(\"quantity1\")) ",
+              "    },",
+              "    {",
+              "        price: parseFloat(pm.environment.get(\"product2_price\")),",
+              "        discount: parseFloat(pm.environment.get(\"product2_discount\")),",
+              "        stock: parseInt(pm.environment.get(\"product2_stock\")),",
+              "        quantity: parseInt(pm.environment.get(\"quantity2\"))",
+              "    }",
+              "];",
+              "",
+              "let expectedTotal = 0;",
+              "",
+              "products.forEach((product, index) => {",
+              "",
+              "    // Validate stock",
+              "    pm.test(`Quantity does not exceed stock for product ${index + 1}`, () => {",
+              "        pm.expect(product.quantity).to.be.at.most(product.stock);",
+              "    });",
+              "",
+              "    // Calculate discounted price",
+              "    const discountedPrice =",
+              "        product.price - (product.price * product.discount / 100);",
+              "",
+              "    expectedTotal += discountedPrice * product.quantity;",
+              "});",
+              "",
+              "expectedTotal = Number(expectedTotal.toFixed(2));",
+              "",
+              "pm.test(\"Cart is created\", () => {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test(\"Cart is created for correct user\", () => {",
+              "    pm.expect(jsonData.userId).to.eql(requestBody.userId);",
+              "});",
+              "",
+              "pm.test(\"First product quantity matches request\", () => {",
+              "    pm.expect(jsonData.products[0].quantity)",
+              "        .to.eql(requestBody.products[0].quantity);",
+              "});",
+              "",
+              "pm.test(\"Discounted total is correct\", () => {",
+              "    pm.expect(jsonData.discountedTotal)",
+              "        .to.be.closeTo(expectedTotal, 0.5);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{accessToken}}",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": {{userId}},\n  \"products\": [\n    { \"id\": {{product1_id}}, \"quantity\": {{quantity1}} },\n    { \"id\": {{product2_id}}, \"quantity\": {{quantity2}} }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/carts/add",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "carts",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Negative Case/ Zero quantity",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Cart is created even with zero quantity (no validation present)\", () => {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "let price = parseFloat(pm.environment.get(\"product1_price\"));",
+              "let expectedTotal = price * 0; ",
+              "",
+              "console.log(`Expected amount should be: ${expectedTotal}`);",
+              "console.log(`Actual API amount is: ${jsonData.total}`);",
+              "",
+              "pm.test(\"API does not prevent zero quantity - potential business rule issue\", () => {",
+              "   pm.expect(jsonData.total).to.not.eql(expectedTotal);",
+              "    ",
+              "});",
+              "",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "packages": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": {{userId}},\n  \"products\": [\n    { \"id\": {{product1_id}}, \"quantity\": 0}\n    \n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/carts/add",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "carts",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edge Case /OutofStock",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const jsonData = pm.response.json();",
+              "",
+              "let price = parseFloat(pm.environment.get(\"product1_price\"));",
+              "let quantity = parseInt(pm.environment.get(\"highQuantity\"));",
+              "let stock = parseInt(pm.environment.get(\"product1_stock\"));",
+              "",
+              "let expectedTotal = Number((price * quantity).toFixed(2));",
+              "",
+              "pm.test(\"Status code is 201 - cart created\", () => {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test(\"Test data validation: quantity exceeds stock\", () => {",
+              "    pm.expect(quantity).to.be.above(stock);",
+              "});",
+              "",
+              "//API calculates total based on requested quantity (ignores stock)-Business rule gap",
+              "pm.test(\"API calculates total using requested quantity\", () => {",
+              "    pm.expect(jsonData.total).to.eql(expectedTotal);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": {{userId}},\n  \"products\": [\n    { \"id\": {{product1_id}}, \"quantity\": {{highQuantity}} }\n    \n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/carts/add",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "carts",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

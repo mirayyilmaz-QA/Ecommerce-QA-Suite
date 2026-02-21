@@ -1,15 +1,18 @@
 node_modules/
 
 # Playwright
-node_modules/
+**/node_modules/
 test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
 playwright/.auth/
 
-# Allure
+# Reports
 allure-results/
+**/bdd-tests/reports/
+**/cucumber-report.html
+**/cucumber-report.json
 
 # OS
 .DS_Store

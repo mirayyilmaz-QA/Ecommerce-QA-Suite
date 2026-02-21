@@ -3,16 +3,19 @@ export const productPool = [
     {
         name: 'Radiant Tee',
         size: 'M',
-        color: 'Blue'
+        color: 'Blue',
+        price: 22.00
     },
     {
         name: 'Breathe-Easy Tank',
         size: 'S',
-        color: 'Purple'
+        color: 'Purple',
+        price: 34.00
     },
     {
         name: 'Argus All-Weather Tank',
         size: 'L',
-        color: 'Gray'
+        color: 'Gray',
+        price: 22.00
     }
 ];

@@ -14,7 +14,8 @@ export function createCheckoutData() {
         product: {
             name: rawProduct.name,     // visible product title text in UI
             size: rawProduct.size,     // aria-label value
-            color: rawProduct.color    // aria-label value
+            color: rawProduct.color,    // aria-label value
+            price: rawProduct.price     // price value for potential price verification
         },
 
         guest: {

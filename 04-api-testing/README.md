@@ -1,58 +1,122 @@
-# API Testing Suite (FakeStoreAPI)
+# Playwright API Automation Project
 
-## Project Overview & Strategy
-Originally planned as a Magento-specific suite, I transitioned this module to the **FakeStoreAPI** to its clear structure & stable endpoints and focus on core **API Business Logic** rather than platform-specific configurations. 
+This project demonstrates end-to-end API testing starting with manual validation in Postman and evolving into automated API testing using Playwright with TypeScript.
 
-This project follows a tool-agnostic approach, where I first designed the testing logic in **Postman** for exploration and then ported it into a programmatic **Playwright + TypeScript** suite for automated regression.
+The API used for testing is: **DummyJSON**
 
-### The Business Logic Problem
-In a robust e-commerce system, the backend must ensure data integrity between product catalog pricing and cart calculations. I designed this suite to validate if the system correctly maintains the "Official Price" throughout the checkout lifecycle.
+The goal of this project is to show:
 
----
+**API testing fundamentals**
 
-## Implementation 1: Postman (Exploration & Design)
-Postman was used to map out the API's behavior and define the "Contract" between requests.
+* Structured validation
+* Business logic verification
+* Clean automation architecture
+* Network interception and mocking
 
-* **Dynamic Data Prep**: Fetches the full product list, validates the array schema, and picks a random product to ensure the suite is not hardcoded.
-* **Auth Flow**: Handles JWT token generation and automated injection using Postman Environments.
-* **Key Finding (Bug Documentation)**: Identified that the `POST /carts` endpoint lacks a `subtotal` field. I implemented a 'Shadow Calculation' in the test scripts to verify what the math *should* be, demonstrating a proactive approach to identifying missing API requirements.
+## Project Scope
 
----
+This repository contains two main parts:
 
-## Implementation 2: Playwright & TypeScript (Automation)
-I ported the Postman logic into a programmatic suite to show I can scale testing into a modern CI/CD pipeline.
+## 1.Postman API Testing
 
+The initial API exploration and validation were done using Postman. This phase demonstrates understanding of API behavior before automation.
 
+Included in this repository:
+* Exported Postman Collection (JSON)
+* Exported Postman Environment (JSON)
 
-* **Asynchronous State Management**: Uses TypeScript variables to pass dynamic data (JWT Tokens, IDs, and Prices) between test blocks.
-* **Defensive Assertions**: Implemented conditional logic to handle and document the identified "Missing Subtotal" bug, preventing the suite from failing while still flagging the issue.
-* **CI/CD Ready**: Integrated with GitHub Actions to run automatically on every push, ensuring zero regression for the API logic.
-
----
-
-## Technical Decision: Why Playwright/TS?
- I chose **Playwright with TypeScript** for this portfolio to align with the industry shift toward unified testing frameworks. This demonstrates my ability to contribute to a "Full-Stack" QA environment where UI and API tests share the same language and ecosystem.
-
----
-
-## 🏁 How to Run
-### Postman:
-1. Import `postman/FakeStore_Collection.json`.
-2. Import `postman/FakeStore_Environment.json`.
-3. Select the `FakeStore-Prod` environment and run the collection.
-
-### Playwright:
-1. `cd playwright-api`
-2. `npm install`
-3. `npx playwright test`
+Covered in Postman:
+* Authentication (/auth/login)
+* Fetching user profile
+* Retrieving product list
+* Creating carts
+* Status code validation
+* Basic response structure validation
 
 
----
+## 2.Playwright API Automation (TypeScript)
 
-## What This Project Demonstrates
+The same API logic was then automated using Playwright. This phase expands testing to a higher level by adding:
 
-* API contract validation
-* Business logic testing beyond happy paths
-* Bug detection through calculated expectations
-* Migration from manual API testing to scalable automation
-* CI/CD-ready API regression testing
+* Reusable utilities
+* Typed interfaces
+* Business logic validation
+* Negative testing
+* Network mocking
+
+### Tech Stack
+
+* Node.js
+* Playwright
+* TypeScript
+* Postman
+
+### Project Structure
+
+```text
+tests/           → API flow tests & mocking tests
+utils/           → Helper functions & TypeScript interfaces
+testData/        → Test user credentials
+auth.setup.ts    → Authentication setup (storage state)
+postman/         → Exported collection & environment
+```
+
+## Key Features
+
+### Authentication Setup
+
+A setup project logs in once and saves authentication state for reuse across tests. This avoids repeated login logic and keeps tests clean.
+
+### Typed API Responses
+
+This prevents runtime mistakes and improves maintainability. Custom TypeScript interfaces:
+* User
+* Product
+* Cart
+
+### Business Logic Validation
+
+Cart totals are verified using calculated expected values:
+
+```(price × quantity)```
+
+This ensures backend calculations are correct — not just status codes.
+
+### Negative & Edge Case Testing
+
+The project documents real API behavior, including:
+* Zero quantity acceptance
+* Checkout exceeding available stock
+* These tests highlight business rule gaps.
+
+### Network Interception & Mocking
+
+Demonstrates how to:
+* Simulate 500 Internal Server Errors
+* Mock empty cart responses
+* Validate frontend resilience behavior
+* This shows understanding beyond simple API validation.
+
+### How to Run
+
+Install dependencies: ```npm install```
+
+Run all tests: ```npx playwright test```
+
+Run in UI mode: ```npx playwright test --ui```
+
+### What This Project Demonstrates
+
+* API testing fundamentals
+* Transition from manual to automated testing
+* Clean test architecture
+* Reusable utilities
+* Typed API validation
+* Business-focused testing
+* Controlled mocking strategies
+
+### Notes
+
+* Uses predefined seeded users provided by DummyJSON.
+* Designed as a structured portfolio-level API automation project.
+* Focused on clarity, maintainability, and realistic testing practices.

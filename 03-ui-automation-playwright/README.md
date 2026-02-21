@@ -1,48 +1,55 @@
 # Playwright E2E Automation Framework
 
-This project is a real-world end-to-end (E2E) automation framework built with **Playwright** for the [Magento 2 Open Source](https://magento2-demo.magebit.com/) e-commerce platform.  
-It is part of my QA portfolio and demonstrates how I design stable, readable, and maintainable test automation for dynamic web applications.
+This project is a production-style end-to-end (E2E) automation suite built for the[Magento 2 Open Source](https://magento2-demo.magebit.com/) platform.  
 
-The focus of this project is not only automation, but also clean structure, reliability, and real-world usability.
+The goal of this project is not only to produce passing tests, but to design a stable, maintainable automation framework capable of detecting real functional defects.
+
+---
+
+## Key Highlights
+
+* Structured Page Object Model (POM)
+* Flow-based business logic abstraction
+* Hybrid UI + API validation
+* Resilient synchronization strategy
+* CI-ready (GitHub Actions)
+* Real defect detection & documentation
 
 ---
 
 ## Architecture & Design
 
-### Page Object Model (POM)
-Each page has its own class (e.g. `ProductPage`, `CheckoutPage`).  
-This keeps tests clean and makes UI changes easy to maintain.
+* **Page Object Model (POM):** Each page has its own class. This keeps tests clean and makes UI changes easy to maintain.
 
-### Page Manager
-A central manager that controls all page objects.  
-Tests focus on business flows instead of technical setup logic.
+* **Page Manager:** A central manager that controls all page objects.  Tests focus on business flows instead of technical setup logic.
 
-### BasePage & Inheritance
-A foundational class that handles common e-commerce logic like loader masks, network synchronization, and global navigation. All page objects inherit these resilient behaviors.
+* **Business Flows:** User journeys (e.g, Guest Checkout) are written as readable flow methods. Tests describe real user behaviors.
 
-### Business Flows
-User journeys ( **Guest Checkout** , **Registered User Checkout** ) are written as readable flow methods.  
-Tests describe real user behavior instead of low-level technical steps.
+* **Data Factory:** Test data is generated dynamically to avoid account conflicts and ensure every run is fresh
 
-### Data Factory
-Test data (user, address, shipping info) is generated dynamically for each run.  
-This avoids duplicated users and test data conflicts.
+* **Hybrid Testing (UI + API Validation):** In addition to UI automation, the framework validates backend integrity using direct API calls.
 
 ---
 
-## Stability Strategy & Resilience Strategy
+## Resilience & Stability Strategy
 
-E-commerce platforms like Magento are notoriously flaky due to heavy JavaScript hydration (Knockout.js). This framework implements:
+Magento is a dynamic, JavaScript-heavy platform. To prevent flaky tests, the framework uses:
 
-* **Asynchronous State Guards:** Uses custom `waitForPageToSettle` methods to synchronize with Magento's internal state beyond simple page loads.
-* **Intelligent Retries (toPass):** Implements Playwright's `toPass` logic for critical transitions (e.g., Mini-cart and Shipping-to-Payment) to handle intermittent UI "flickers" and DOM re-renders.
-* **Precise Actionability Checks:** Combines `waitForResponse` (network layer) with `toBeEnabled` (UI layer) to ensure the framework never clicks a button before the backend is ready.
-* **Cross-Browser Reliability:** Specific optimizations for Firefox's rendering engine to prevent race conditions during checkout navigation.
-* Background activity handling using real UI signals (loaders, masks, spinners)
-* Precise element selection to avoid wrong interactions (e.g. `S` vs `XS`)
-* Reliable interactions with overlays and blocked elements
+* State-based synchronization (instead of fixed waits)
+* waitForResponse for backend readiness
+* UI loader monitoring
+* Intelligent retry logic using toPass
+* Actionability checks before interactions
 
 ---
+
+## Defect Tracking
+
+The framework has detected real functional defects.
+
+Example: BUG-004 – Incorrect price sorting (ASC & DESC)
+→ Documented in GitHub Issues
+→ Tracked under /bugs/
 
 ## Project Structure
 
@@ -52,7 +59,8 @@ E-commerce platforms like Magento are notoriously flaky due to heavy JavaScript 
 ├─ pages/               Page Objects
 ├─ components/          Reusable UI components
 ├─ core/                Framework core utilities
-├─ tests/               E2E test scenarios
+├─ tests/               Test scenarios
+├─ bugs/                Report links directing to the GitHub Issues tab
 ├─ playwright.config.ts
 ├─ package.json
 └─ README.md
@@ -65,55 +73,53 @@ E-commerce platforms like Magento are notoriously flaky due to heavy JavaScript 
 - **Language:** TypeScript  
 - **Framework:** Playwright  
 - **Test Architecture:** Page Object Model (POM), Flow-based design  
-- **Test Runner:** Playwright Test  
 - **Reporting:** Playwright HTML Report, Allure  
 - **CI:** GitHub Actions  
 - **Data Handling:** Dynamic test data generation (Data Factory pattern)  
-- **Target Platform:** Magento 2 Open Source
-  
+- **Api Validation:** Playwright request Api
+
 --- 
 
 ## Getting Started
 
-## Install dependencies
-cd 03-ui-automation-playwright
-npm install
-
- ---
- 
-## Run tests
+### Install dependencies
+```npm install```
 
 ### Run tests in headless mode
 ```npx playwright test```
 
-### Run tests in headed mode
-```npx playwright test --headed```
-
----
-
-## Reports
-
-### Show Playwright HTML report
+### View the report
 ```npx playwright show-report```
 
-### Serve Allure results
-```allure serve allure-results```
-
 ---
 
-## CI Integration
-This project includes GitHub Actions integration. Tests are automatically executed in CI when code is pushed to the repository using:
+## Behavior-Driven Development (BDD) Extension
+This project features a standalone BDD layer implemented with Cucumber.js and TypeScript. It is designed as a "wrapper" that leverages the existing Page Object Model (POM) without compromising the integrity of the core UI automation framework.
 
-.github/workflows/playwright.yml
+### Architecture & Design
+The BDD implementation follows a Three-Layer Architecture:
 
-## Purpose
-This project is part of my QA engineering portfolio and demonstrates:
+* **Requirement Layer (.feature):** Scenarios written in Gherkin (Given/When/Then) to bridge the communication gap between technical and non-technical stakeholders.
+* **Glue Layer (.steps.ts):** Step definitions that map Gherkin steps to technical execution.
+* **Core Logic Layer (POM/Flows):** The BDD layer imports and reuses the PageManager and Flows from the main framework, demonstrating high reusability and loose coupling.
 
-* Real-world automation design
-* Scalable framework structure
-* Maintainability
-* Stability-focused testing
-* CI-ready automation
+### Key Technical Implementations
+Separation of Concerns: The BDD folder (/bdd-tests) remains independent of the standard Playwright runner.
+
+* **Context Sharing:** Utilizes a custom hooks.ts to manage the Playwright browser lifecycle and BrowserContext for isolated test execution.
+
+* **Custom Reporting:** Integrated cucumber-html-reporter to generate stakeholder-friendly visual dashboards.
+
+* **Strict Type Checking:** Configured a dedicated tsconfig.json to ensure type safety across the BDD and Core layers.
+
+### How to Run & View Reports
+To execute the BDD scenarios and generate the visual report, run the following commands:
+
+### Run BDD Tests
+```npx cucumber-js --config bdd-tests/cucumber.mjs```
+
+### Generate HTML Report
+```node generate-report.cjs```
 
 This is not a tutorial-style demo project.  It is designed as a production-style automation framework following real-world QA practices.
 

@@ -47,7 +47,7 @@ export class ProductPage {
         await expect(addToCartBtn).toBeVisible();
         await expect(addToCartBtn).toBeEnabled();
 
-        // Listener before the click
+        // Listener before the click(Network validation before clicking)
         const responsePromise = this.page.waitForResponse(resp =>
             resp.url().includes('checkout/cart/add') && resp.status() === 200,
             { timeout: 20000 }
@@ -66,7 +66,7 @@ export class ProductPage {
     }
 
 
-    async configureAndAddToCart(productName: string, size: string, color: string) {
+    async configureAndAddToCart(productName: string, size: string, color: string, price?: number) {
         await this.selectSizeAndColor(productName, size, color);
         await this.addToCart(productName);
     }

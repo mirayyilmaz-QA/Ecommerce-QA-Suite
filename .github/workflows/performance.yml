@@ -28,3 +28,5 @@ jobs:
         with:
           name: k6-summary-report
           path: 05-performance-k6/reports/summary.html
+
+#Force sync commit to trigger workflow run          

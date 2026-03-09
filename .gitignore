@@ -15,7 +15,8 @@ allure-results/
 **/cucumber-report.json
 
 # k6 Performance specific
-**/performance-k6/reports/*.html
+05-performance-k6/reports/*.html
+05-performance-k6/reports/*.json
 
 # OS
 .DS_Store

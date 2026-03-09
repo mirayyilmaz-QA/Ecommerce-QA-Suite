@@ -3,7 +3,7 @@ import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporte
 export function handleSummary(data) {
     return {
 
-        "05-performance-k6/reports/summary.html": htmlReport(data),
-        stdout: JSON.stringify(data),
+        "reports/summary.html": htmlReport(data),
+        //stdout: JSON.stringify(data),
     };
 }

@@ -39,3 +39,6 @@ To ensure Quality Engineering standards, every test must pass these strict crite
 * **Auth Handling:** Implements setup() to handle OAuth token generation once per test run.
 * **Parallel Execution:** Uses k6 scenarios to run different user behaviors simultaneously.
 * **DRY Principle:** API endpoints are encapsulated in the services/ layer for easy updates.
+
+### Note on Test Data: 
+This project uses a randomized user selection logic. Currently, it is optimized for the emilys account as it provides the most stable authentication tokens for the DummyJSON environment.

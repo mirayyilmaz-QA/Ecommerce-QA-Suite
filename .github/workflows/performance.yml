@@ -1,0 +1,30 @@
+name: Performance Load Tests (k6)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '05-performance-k6/**'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  k6_test:
+    name: Run k6 Load Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run k6 Local Test
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: 05-performance-k6/scripts/api/login-test.js
+          flags: -u 1 --duration 10s
+
+      - name: Upload Performance Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-summary-report
+          path: 05-performance-k6/reports/summary.html

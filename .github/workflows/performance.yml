@@ -25,8 +25,8 @@ jobs:
           flags: --vus 1 --duration 10s # Running as a "Smoke Test" for CI health
 
       - name: Upload Performance Report
-        if: always() # Ensures report is uploaded even if thresholds fail
+        if: always() 
         uses: actions/upload-artifact@v4
         with:
           name: k6-summary-report
-          path: 05-performance-k6/reports/summary.html
+          path: 05-performance-k6/**/*.html

@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: k6-summary-report
-          path: 05-performance-k6/**/*.html
+          path: 05-performance-k6/reports/summary.html

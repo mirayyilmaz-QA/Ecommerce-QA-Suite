@@ -9,6 +9,6 @@ This list provides a high-level summary of defects identified during the Magento
 | **BUG-003** | High | Inconsistent Discount Application | Open | [View Issue #3](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/issues/3) |
 
 ---
-*Note: Supporting logs and screenshots are located in this folder.*
+*Note: Supporting logs and screenshots are located in the Issues tab.*
 
 

@@ -2,12 +2,14 @@ name: Performance Load Tests (k6)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
     paths:
-      - '05-performance-k6/**' # Only run when performance files change
+      - '05-performance-k6/**'
   pull_request:
-    branches: [ main ]
-  workflow_dispatch: # Allows you to run the test manually from the Actions tab
+    branches: [ main, master ]
+    paths:
+      - '05-performance-k6/**'
+  workflow_dispatch:
 
 jobs:
   k6_test:

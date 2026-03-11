@@ -3,7 +3,7 @@ import { testUsers } from '../testData/user';
 import fs from 'fs';
 import path from 'path';
 
-setup('authenticate', async ({ request }) => {
+setup('authenticate @sanity', async ({ request }) => {
 
     const response = await request.post('/auth/login', {
         data: testUsers.guest

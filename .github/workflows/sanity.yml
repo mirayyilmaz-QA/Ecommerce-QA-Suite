@@ -1,0 +1,51 @@
+name: Sanity Suite
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  ui-sanity:
+    name: UI Sanity Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 03-ui-automation-playwright/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: 03-ui-automation-playwright
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+        working-directory: 03-ui-automation-playwright
+
+      - name: Run UI Sanity Tests
+        run: npx playwright test --grep @sanity
+        working-directory: 03-ui-automation-playwright
+
+  api-sanity:
+    name: API Sanity Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 04-api-testing/playwright-api/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: 04-api-testing/playwright-api
+
+      - name: Run API Sanity Tests
+        run: npx playwright test --grep @sanity
+        working-directory: 04-api-testing/playwright-api

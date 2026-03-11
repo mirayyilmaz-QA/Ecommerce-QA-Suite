@@ -1,23 +1,47 @@
-# Ecommerce QA Suite
-A comprehensive end-to-end quality engineering project for a modern e-commerce platform, covering Manual, API, UI Automation, Performance, and Database testing.
+# E-Commerce Quality Engineering Portfolio
+ ![Sanity Suite](SANITY_BADGE_URL)
 
-## Target Platform: Magento 2  
-For this project, I selected the [Magento 2 Open Source](https://magento2-demo.magebit.com/) platform as the primary testing target for real-world e-commerce automation scenarios.
+## A Comprehensive Full-Stack Testing Ecosystem
 
+This repository is a professional showcase of my transition from **IT Recruitment to Software Quality Engineering.** Rather than testing a "toy" application, I built a modular testing suite that addresses real-world business risks across the entire e-commerce stack.
 
-## Why I Chose This Platform
-* Magento is a world-class, enterprise-level e-commerce engine. Unlike simple "todo" apps or practice websites, Magento provides a high-fidelity environment with:
-* Complex Business Logic: Multi-step checkout, guest vs. registered user flows, and dynamic cart updates.
-* Modern Web Architecture: It heavily utilizes asynchronous JavaScript (Knockout.js) and AJAX, which are common in professional software development.
-* Layered Testing Opportunities: The platform allows for deep dives into API endpoints, Database schemas (MySQL), and UI automation.
+## The Problem I Solved
+In a fast-paced e-commerce environment, manual regression testing for the "Golden Path" (Search → Cart → Checkout) can take hours. I engineered this suite to reduce that effort to **under 60 seconds** while ensuring data integrity from the **UI** down to the **Database.**
 
+## The Modern Tech Stack (JS/TS Focused)
+I chose a **JavaScript-heavy stack** to ensure high execution speed, maintainability, and deep integration with modern web architectures.
 
-This repository serves as a showcase of my skills as a Software QA Engineer. It follows a structured roadmap to demonstrate proficiency in various testing layers:
+* **UI Automation:** Playwright (TypeScript) with Page Object Model (POM).
+* **API Testing:** Playwright API & Postman (testing the DummyJson API).
+* **Mobile Testing:** Appium + WebdriverIO (JavaScript).
+* **Performance:** k6 (JavaScript-based Load Testing).
+* **Database:** MySQL (Relational Data Validation).
+* **CI/CD:** GitHub Actions (Automated test execution on every push).
 
-* Manual Testing Strategy (Test Plans, Bug Reporting)
-* Database Testing (MySQL)
-* UI Automation (Playwright & Selenium)
-* API Testing (Postman & RestAssured)
-* Performance Testing (JMeter)
-* Mobile Testing (Appium)
-* AI in QA (Generative AI for Test Data)
+## Repository Structure
+* ```01-manual-testing/:``` Test Plans, Traceability Matrix, and high-fidelity Bug Reports (Jira/Xray style).
+* ```02-database-sql/:``` CRUD and Join-heavy validation scripts for data integrity.
+* ```03-playwright-automation/:``` The E2E "Golden Path" regression suite.
+* ```04-api-testing/:``` Hybrid suite covering Schema validation and Request Chaining.
+* ```07-performance-k6/:``` Stress tests and Load scripts with SLO thresholds.
+* ```mobile-extension/:``` [mobile-repo](https://github.com/mirayyilmaz-QA/mobile-automation-portfolio) Cross-platform mobile sanity checks.
+
+## AI-Assisted Quality Engineering
+I don't just use tools; I leverage **Generative AI** to act as a force multiplier in my QA process:
+
+* **Test Data Generation:** Used AI to create thousands of synthetic user profiles and JSON payloads.
+* **Edge Case Brainstorming:** Prompted AI to identify "unhappy paths" for complex discount and tax logic.
+* **Code Optimization:** Leveraged AI for refactoring Page Objects into more readable, DRY (Don't Repeat Yourself) code.
+
+## Continuous Integration (CI/CD)
+This project is **production-ready.** Every code change triggers a **GitHub Action** that runs a core "Sanity Suite," ensuring that new updates never break existing functionality. Look for the **"Passed"** badge on my latest commits!
+
+### Pipeline Status
+
+| Layer | Status | Description |
+| :--- | :--- | :--- |
+| **UI Automation** | ![UI Badge](URL) | Full Regression (Playwright) |
+| **API Testing** | ![API Badge](URL) | Integration & Schema Validation |
+| **Performance** | ![Perf Badge](URL) | Load Testing (k6) |
+
+ **Note:** The Sanity Suite at the top of this page runs on every commit to ensure core business flows (Login, Checkout) are never broken.

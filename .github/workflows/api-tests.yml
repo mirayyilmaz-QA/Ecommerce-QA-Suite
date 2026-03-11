@@ -1,9 +1,15 @@
 name: API Regression Suite
+
 on:
   push:
     branches: [ main, master ]
+    paths:
+      - '04-api-testing/**' 
   pull_request:
     branches: [ main, master ]
+    paths:
+      - '04-api-testing/**' 
+
 
 jobs:
   test:

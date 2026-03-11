@@ -13,7 +13,7 @@ test.describe('Magento Checkout', () => {
 
     });
 
-    test('Guest checkout flow', async () => {
+    test('Guest checkout flow @sanity', async () => {
 
         await flows.guestCheckout();
 
@@ -22,7 +22,7 @@ test.describe('Magento Checkout', () => {
 
     });
 
-    test('Registered checkout flow', async () => {
+    test('Registered checkout flow @sanity', async () => {
 
         await flows.registeredCheckout();
 

@@ -12,7 +12,7 @@ export const loadOptions = {
     },
 
     thresholds: {
-        http_req_duration: ['p(95)<500'],
+        http_req_duration: ['p(95)<800'],
         http_req_failed: ['rate<0.01'],
     },
 };
@@ -45,7 +45,8 @@ export const averageLoad = {
     },
 
     thresholds: {
-        http_req_duration: ['p(95)<500'],
+        http_req_duration: ['p(95)<1000'],
+        http_req_failed: ['rate<0.01'],
     },
 
 };

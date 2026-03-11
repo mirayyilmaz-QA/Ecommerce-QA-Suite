@@ -1,5 +1,5 @@
 # E-Commerce Quality Engineering Portfolio
- ![Sanity Suite](SANITY_BADGE_URL)
+[![Sanity Suite](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/sanity.yml/badge.svg)](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/sanity.yml)
 
 ## A Comprehensive Full-Stack Testing Ecosystem
 
@@ -40,8 +40,8 @@ This project is **production-ready.** Every code change triggers a **GitHub Acti
 
 | Layer | Status | Description |
 | :--- | :--- | :--- |
-| **UI Automation** | ![UI Badge](URL) | Full Regression (Playwright) |
-| **API Testing** | ![API Badge](URL) | Integration & Schema Validation |
-| **Performance** | ![Perf Badge](URL) | Load Testing (k6) |
+| **UI Automation** | [![Playwright Tests](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/playwright.yml/badge.svg)](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/playwright.yml)| Full Regression (Playwright) |
+| **API Testing** | [![API Regression Suite](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/api-tests.yml/badge.svg)](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/api-tests.yml) | Integration & Schema Validation |
+| **Performance** | [![Performance Load Tests (k6)](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/performance.yml/badge.svg)](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/performance.yml)| Load Testing (k6) |
 
  **Note:** The Sanity Suite at the top of this page runs on every commit to ensure core business flows (Login, Checkout) are never broken.

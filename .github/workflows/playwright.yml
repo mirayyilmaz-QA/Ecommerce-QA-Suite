@@ -31,6 +31,10 @@ jobs:
     
     - name: Run BDD Cucumber tests
       run: npx cucumber-js 
+      env:
+        
+        NODE_OPTIONS: "--loader ts-node/esm --no-warnings"
+        
       working-directory: 03-ui-automation-playwright/bdd-tests
 
     - uses: actions/upload-artifact@v4

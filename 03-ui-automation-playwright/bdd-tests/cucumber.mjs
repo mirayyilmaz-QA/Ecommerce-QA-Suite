@@ -7,5 +7,5 @@ export default {
     import: ['./bdd-tests/steps/**/*.ts'],
     loader: ['ts-node/esm'],
     publishQuiet: true,
-    format: ['progress', 'json:./bdd-tests/reports/cucumber_report.json']
+    format: ['progress', 'json:bdd-tests/reports/cucumber_report.json']
 };

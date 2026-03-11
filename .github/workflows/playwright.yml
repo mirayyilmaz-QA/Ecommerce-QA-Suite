@@ -33,7 +33,7 @@ jobs:
       run: npx cucumber-js --config bdd-tests/cucumber.mjs
       env:     
         NODE_OPTIONS: "--loader ts-node/esm --no-warnings"  
-      working-directory: 03-ui-automation-playwright/bdd-tests
+      working-directory: 03-ui-automation-playwright
 
     - uses: actions/upload-artifact@v4
       if: always()

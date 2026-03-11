@@ -30,7 +30,7 @@ jobs:
       working-directory: 03-ui-automation-playwright
     
     - name: Run BDD Cucumber tests
-      run: npx cucumber-js 
+      run: npx cucumber-js bdd-tests/features/**/*.feature --config bdd-tests/cucumber.mjs
       env:
         
         NODE_OPTIONS: "--loader ts-node/esm --no-warnings"

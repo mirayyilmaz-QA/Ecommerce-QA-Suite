@@ -52,3 +52,5 @@ jobs:
       - name: Run API Sanity Tests
         run: npx playwright test --grep @sanity
         working-directory: 04-api-testing/playwright-api
+        
+#force node 24 for all JavaScript actions to ensure compatibility with the latest features and improvements.

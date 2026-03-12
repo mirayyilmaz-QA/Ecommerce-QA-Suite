@@ -91,6 +91,7 @@ Example: BUG-004 – Incorrect price sorting (ASC & DESC)
 ---
 
 ##  BDD & Cucumber Integration
+
 This repository integrates a full Behavior-Driven Development (BDD) layer on top of the existing Playwright E2E architecture, allowing scenarios to be written in business-readable Gherkin syntax without duplicating core page objects.
 
 ### Key Technical Implementations

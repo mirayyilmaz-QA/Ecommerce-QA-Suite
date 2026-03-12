@@ -19,25 +19,35 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 20
+        
     - name: Install dependencies
       run: npm ci 
       working-directory: 03-ui-automation-playwright
+
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps 
       working-directory: 03-ui-automation-playwright
+
     - name: Run Playwright tests
       run: npx playwright test
       working-directory: 03-ui-automation-playwright
     
     - name: Run BDD Cucumber tests
-      run: npx cucumber-js --config bdd-tests/cucumber.mjs
-      env:     
-        NODE_OPTIONS: "--loader ts-node/esm --no-warnings"  
+      run: npm run test:bdd
       working-directory: 03-ui-automation-playwright
-
-    - uses: actions/upload-artifact@v4
+     
+    - name: Upload Playwright Report
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
         path: 03-ui-automation-playwright/playwright-report/ 
+        retention-days: 30
+
+    - name: Upload Cucumber BDD Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: cucumber-report
+        path: 03-ui-automation-playwright/bdd-tests/reports/
         retention-days: 30

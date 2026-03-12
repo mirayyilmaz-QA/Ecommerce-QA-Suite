@@ -12,6 +12,8 @@
     "test:chromium": "npx playwright test --project=chromium",
     "test:firefox": "npx playwright test --project=firefox",
     "test:e2e": "npx playwright test tests/e2e",
+    "test:bdd": "TS_NODE_TRANSPILE_ONLY=true npx cucumber-js --config bdd-tests/cucumber.mjs",
+    "report:bdd": "node generate-report.cjs",
     "allure:clean": "rm -rf allure-results allure-report",
     "allure:generate": "allure generate allure-results -o allure-report --clean",
     "allure:open": "allure open allure-report",

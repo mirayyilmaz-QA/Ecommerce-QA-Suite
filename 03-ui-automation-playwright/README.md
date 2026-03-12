@@ -1,6 +1,6 @@
 # Playwright E2E Automation Framework
 
-This project is a production-style end-to-end (E2E) automation suite built for the[Magento 2 Open Source](https://magento2-demo.magebit.com/) platform.  
+This project is a production-style end-to-end (E2E) automation suite built for the [Magento 2 Open Source](https://magento2-demo.magebit.com/) platform.  
 
 The goal of this project is not only to produce passing tests, but to design a stable, maintainable automation framework capable of detecting real functional defects.
 
@@ -19,6 +19,8 @@ The goal of this project is not only to produce passing tests, but to design a s
 
 ## Architecture & Design
 
+This project uses a layered automation architecture:
+
 * **Page Object Model (POM):** Each page has its own class. This keeps tests clean and makes UI changes easy to maintain.
 
 * **Page Manager:** A central manager that controls all page objects.  Tests focus on business flows instead of technical setup logic.
@@ -28,6 +30,20 @@ The goal of this project is not only to produce passing tests, but to design a s
 * **Data Factory:** Test data is generated dynamically to avoid account conflicts and ensure every run is fresh
 
 * **Hybrid Testing (UI + API Validation):** In addition to UI automation, the framework validates backend integrity using direct API calls.
+
+```text
+Tests (Playwright + BDD)
+      ↓
+Flows (Business workflows)
+      ↓
+PageManager (Page orchestration)
+      ↓
+Page Objects
+      ↓
+Reusable Components
+      ↓
+Playwright Browser Automation
+```
 
 ---
 
@@ -51,21 +67,6 @@ Example: BUG-004 – Incorrect price sorting (ASC & DESC)
 → Documented in GitHub Issues
 → Tracked under /bugs/
 
-## Project Structure
-
-```text
-03-ui-automation-playwright/
-│
-├─ pages/               Page Objects
-├─ components/          Reusable UI components
-├─ core/                Framework core utilities
-├─ tests/               Test scenarios
-├─ bugs/                Report links directing to the GitHub Issues tab
-├─ playwright.config.ts
-├─ package.json
-└─ README.md
-```
-
 ---
 
 ## Tech Stack
@@ -80,46 +81,29 @@ Example: BUG-004 – Incorrect price sorting (ASC & DESC)
 
 --- 
 
-## Getting Started
+## How to Run Tests
 
-### Install dependencies
-```npm install```
-
-### Run tests in headless mode
-```npx playwright test```
-
-### View the report
-```npx playwright show-report```
+* Clone the repository.
+* Install dependencies: ```npm install```
+* Run tests in headless mode: ```npx playwright test```
+* View the report: ```npx playwright show-report```
 
 ---
 
-## Behavior-Driven Development (BDD) Extension
-This project features a standalone BDD layer implemented with Cucumber.js and TypeScript. It is designed as a "wrapper" that leverages the existing Page Object Model (POM) without compromising the integrity of the core UI automation framework.
-
-### Architecture & Design
-The BDD implementation follows a Three-Layer Architecture:
-
-* **Requirement Layer (.feature):** Scenarios written in Gherkin (Given/When/Then) to bridge the communication gap between technical and non-technical stakeholders.
-* **Glue Layer (.steps.ts):** Step definitions that map Gherkin steps to technical execution.
-* **Core Logic Layer (POM/Flows):** The BDD layer imports and reuses the PageManager and Flows from the main framework, demonstrating high reusability and loose coupling.
+##  BDD & Cucumber Integration
+This repository integrates a full Behavior-Driven Development (BDD) layer on top of the existing Playwright E2E architecture, allowing scenarios to be written in business-readable Gherkin syntax without duplicating core page objects.
 
 ### Key Technical Implementations
-Separation of Concerns: The BDD folder (/bdd-tests) remains independent of the standard Playwright runner.
+* **Separation of Concerns:** The BDD layer (`/bdd-tests`) remains strictly independent of the standard Playwright runner, ensuring zero interference with existing E2E specs.
+* **Dual-Runner Compatibility:** Configured seamless TypeScript execution across both Playwright (CommonJS) and Cucumber using `ts-node/register` and runtime transpilation (`TS_NODE_TRANSPILE_ONLY`) to bypass strict compilation loops and optimize execution speed.
+* **Context Sharing:** Utilizes custom `hooks.ts` to natively manage the Playwright `Browser` and `BrowserContext` lifecycles, ensuring pristine, isolated state for every Cucumber scenario.
+* **Custom Reporting:** Integrated `cucumber-html-reporter` to automatically parse JSON outputs into stakeholder-friendly visual dashboards.
 
-* **Context Sharing:** Utilizes a custom hooks.ts to manage the Playwright browser lifecycle and BrowserContext for isolated test execution.
+#### How to Run & View Reports
+To execute the BDD scenarios and generate the visual report, utilize the custom npm scripts configured in `package.json`:
 
-* **Custom Reporting:** Integrated cucumber-html-reporter to generate stakeholder-friendly visual dashboards.
-
-* **Strict Type Checking:** Configured a dedicated tsconfig.json to ensure type safety across the BDD and Core layers.
-
-### How to Run & View Reports
-To execute the BDD scenarios and generate the visual report, run the following commands:
-
-### Run BDD Tests
-```npx cucumber-js --config bdd-tests/cucumber.mjs```
-
-### Generate HTML Report
-```node generate-report.cjs```
+* **Run BDD Tests:** ```npm run test:bdd```
+* **Generate Html Report:**```npm run report:bdd```
 
 This is not a tutorial-style demo project.  It is designed as a production-style automation framework following real-world QA practices.
 

@@ -2,10 +2,10 @@ export default {
     formatOptions: {
         snippetInterface: 'async-await',
     },
+    paths: ['bdd-tests/features/**/*.feature'],
+    requireModule: ['ts-node/register'],
+    require: ['bdd-tests/steps/**/*.ts'],
     defaultTimeout: 30000,
-    paths: ['./bdd-tests/features/**/*.feature'],
-    import: ['./bdd-tests/steps/**/*.ts'],
-    loader: ['ts-node/esm'],
     publishQuiet: true,
-    format: ['progress', 'json:bdd-tests/reports/cucumber_report.json']
+    format: ['json:bdd-tests/reports/cucumber_report.json', 'progress-bar']
 };

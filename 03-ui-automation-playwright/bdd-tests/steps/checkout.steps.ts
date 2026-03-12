@@ -4,22 +4,22 @@ import { page } from './hooks';
 import { PageManager } from '../../core/PageManager';
 import { Flows } from '../../core/Flows';
 
+
 let pm: PageManager;
 let flows: Flows;
 
-Given('the user is on the Magento store home page', async function () {
+Given('I navigate to the Magento home page', async function () {
     pm = new PageManager(page);
     flows = new Flows(pm);
     await page.goto('/');
-
 });
 
-When('the user completes the guest checkout flow', async function () {
-    await flows.guestCheckout();
-});
-
-When('the user completes the registered checkout flow', async function () {
-    await flows.registeredCheckout();
+When('the user completes the {string} checkout flow', async function (userType: string) {
+    if (userType === 'guest') {
+        await flows.guestCheckout();
+    } else if (userType === 'registered') {
+        await flows.registeredCheckout();
+    }
 });
 
 Then('a success message with an order ID should be displayed', async function () {

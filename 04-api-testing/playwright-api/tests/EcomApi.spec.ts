@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test';
 import { getFreshProducts, getRandomQuantity, getActiveUser } from '../utils/apiUtils';
 import { Cart, User } from '../utils/types';
 
-
 test.describe('E-commerce API Flow', () => {
 
   let user: User;

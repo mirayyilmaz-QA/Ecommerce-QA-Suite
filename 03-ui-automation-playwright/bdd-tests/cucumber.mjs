@@ -7,5 +7,8 @@ export default {
     require: ['bdd-tests/steps/**/*.ts'],
     defaultTimeout: 30000,
     publishQuiet: true,
-    format: ['json:bdd-tests/reports/cucumber_report.json', 'progress-bar']
+    format: ['json:bdd-tests/reports/cucumber_report.json',
+        'progress-bar',
+        'html:bdd-tests/reports/cucumber_report.html'
+    ]
 };

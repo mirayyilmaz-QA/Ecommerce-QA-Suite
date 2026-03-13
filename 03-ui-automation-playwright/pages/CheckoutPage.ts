@@ -152,10 +152,11 @@ export class CheckoutPage extends BasePage {
 
             await this.nextBtn.click();
 
-            await expect(this.placeOrderBtn).toBeVisible({ timeout: 5000 });
+            //I have to wait long enough for Magento's heavy AJAX in CI
+            await expect(this.placeOrderBtn).toBeVisible({ timeout: 15000 });
         }).toPass({
-            intervals: [2000],
-            timeout: 15000
+            intervals: [2000, 5000],
+            timeout: 30000
         });
 
         await this.waitForMagentoReady();

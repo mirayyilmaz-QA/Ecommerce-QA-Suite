@@ -1,7 +1,7 @@
 name: Deploy Unified Reports
 on:
   workflow_run:
-    workflows: ["Playwright Tests", "API Regression Suite", "Performance Load Tests (k6)"]
+    workflows: ["Playwright Tests (with BDD extension)", "API Regression Suite", "Performance Load Tests (k6)"]
     types: [completed]
   workflow_dispatch: # Allows me to run it manually if needed
 

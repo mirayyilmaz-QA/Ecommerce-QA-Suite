@@ -1,4 +1,4 @@
-name: API Regression Tests
+name: API Regression Suite
 
 on:
   push:

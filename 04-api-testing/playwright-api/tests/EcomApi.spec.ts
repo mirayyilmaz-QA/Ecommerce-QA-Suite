@@ -26,7 +26,7 @@ test.describe('E-commerce API Flow', () => {
   });
 
 
-  test('Products Schema and Data Integrity @sanity', async ({ request }) => {
+  test('Products Schema & Data Integrity @sanity', async ({ request }) => {
     const response = await request.get('/products');
     const jsonData = await response.json();
 

@@ -38,7 +38,14 @@ jobs:
         with:
           workflow: playwright.yml
           name: cucumber-report
-          path: public/bdd-report
+          path: temp-bdd # Download to a temp folder first
+      - name: Move BDD Files to Public
+        run: |
+          mv temp-bdd/03-ui-automation-playwright/bdd-tests/reports/index.html public/bdd-report/index.html
+          
+          mv temp-bdd/03-ui-automation-playwright/bdd-tests/reports/cucumber_report.json public/bdd-report/cucumber_report.json
+          
+          rm -rf temp-bdd
 
       # API Report
       - name: Download API Artifact

@@ -1,0 +1,145 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "magento-checkout;checkout-flow-for-different-user-types",
+        "keyword": "Scenario Outline",
+        "line": 12,
+        "name": "Checkout flow for different user types",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 42436308
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I navigate to the Magento home page",
+            "match": {
+              "location": "bdd-tests/steps/checkout.steps.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 719395541
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "the user completes the \"guest\" checkout flow",
+            "match": {
+              "location": "bdd-tests/steps/checkout.steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8862020642
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "a success message with an order ID should be displayed",
+            "match": {
+              "location": "bdd-tests/steps/checkout.steps.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6210984
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 7957760
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "magento-checkout;checkout-flow-for-different-user-types",
+        "keyword": "Scenario Outline",
+        "line": 13,
+        "name": "Checkout flow for different user types",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 29185978
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I navigate to the Magento home page",
+            "match": {
+              "location": "bdd-tests/steps/checkout.steps.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 664120485
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "the user completes the \"registered\" checkout flow",
+            "match": {
+              "location": "bdd-tests/steps/checkout.steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13033998060
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "a success message with an order ID should be displayed",
+            "match": {
+              "location": "bdd-tests/steps/checkout.steps.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9819219
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 6752596
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "magento-checkout",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Magento Checkout",
+    "tags": [],
+    "uri": "bdd-tests/features/checkout.feature"
+  }
+]

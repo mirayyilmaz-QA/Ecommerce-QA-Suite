@@ -1,0 +1,63 @@
+name: Deploy Unified Reports
+on:
+  workflow_run:
+    workflows: ["Playwright Tests", "API Regression Suite", "Performance Load Tests (k6)"]
+    types: [completed]
+  workflow_dispatch: # Allows me to run it manually if needed
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Create Structure
+        run: mkdir -p public/ui-report public/bdd-report public/api-report public/performance-report
+
+      - name: Copy Dashboard
+        run: cp website/index.html public/index.html
+
+      # UI Report
+      - name: Download UI Artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: playwright.yml
+          name: playwright-report
+          path: public/ui-report
+
+      # BDD Report
+      - name: Download BDD Artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: playwright.yml
+          name: cucumber-report
+          path: public/bdd-report
+
+      # API Report
+      - name: Download API Artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: api-tests.yml
+          name: api-report
+          path: public/api-report
+
+      # Performance Report
+      - name: Download Performance Artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: performance.yml
+          name: k6-summary-report
+          path: public/performance-report
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: public
+          branch: gh-pages # This creates the hosting branch

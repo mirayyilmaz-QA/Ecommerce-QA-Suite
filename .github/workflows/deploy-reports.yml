@@ -42,7 +42,7 @@ jobs:
       - name: Move BDD Files to Public
         run: |
           
-          find temp-bdd -name "index.html" -exec cp {} public/bdd-report/index.html \; || true
+          find temp-bdd -name "cucumber_report.html" -exec cp {} public/bdd-report/index.html \; || true
           find temp-bdd -name "cucumber_report.json" -exec cp {} public/bdd-report/cucumber_report.json \; || true
           rm -rf temp-bdd
 

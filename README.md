@@ -23,7 +23,7 @@ I chose a **JavaScript-heavy stack** to ensure high execution speed, maintainabi
 * ```02-database-sql/:``` CRUD and Join-heavy validation scripts for data integrity.
 * ```03-playwright-automation/:``` The E2E "Golden Path" regression suite.
 * ```04-api-testing/:``` Hybrid suite covering Schema validation and Request Chaining.
-* ```07-performance-k6/:``` Stress tests and Load scripts with SLO thresholds.
+* ```05-performance-k6/:``` Stress tests and Load scripts with SLO thresholds.
 * ```mobile-extension/:``` [mobile-repo](https://github.com/mirayyilmaz-QA/mobile-automation-portfolio) Cross-platform mobile sanity checks.
 
 ## AI-Assisted Quality Engineering
@@ -53,6 +53,6 @@ This repository features a fully automated CI/CD pipeline via GitHub Actions. Te
 | **UI Regression** | Playwright (TypeScript) | [**View UI Report**](https://mirayyilmaz-QA.github.io/Ecommerce-QA-Suite/ui-report/) |
 | **BDD Scenarios** | Cucumber / Playwright | [**View BDD Report**](https://mirayyilmaz-QA.github.io/Ecommerce-QA-Suite/bdd-report/) |
 | **API Health** | Playwright API | [**View API Report**](https://mirayyilmaz-QA.github.io/Ecommerce-QA-Suite/api-report/) |
-| **Performance** | k6 | [**View k6 Summary**](https://mirayyilmaz-QA.github.io/Ecommerce-QA-Suite/performance-report/cucumber_report.html) |
+| **Performance** | k6 | [**View k6 Summary**](https://mirayyilmaz-qa.github.io/Ecommerce-QA-Suite/performance-report/summary.html) |
  
  **Note:** The Sanity Suite at the top of this page runs on every commit to ensure core business flows (Login, Checkout) are never broken.

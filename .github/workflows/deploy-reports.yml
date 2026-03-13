@@ -41,10 +41,9 @@ jobs:
           path: temp-bdd # Download to a temporary folder first
       - name: Move BDD Files to Public
         run: |
-          mv temp-bdd/03-ui-automation-playwright/bdd-tests/reports/index.html public/bdd-report/index.html
           
-          mv temp-bdd/03-ui-automation-playwright/bdd-tests/reports/cucumber_report.json public/bdd-report/cucumber_report.json
-          
+          find temp-bdd -name "index.html" -exec cp {} public/bdd-report/index.html \; || true
+          find temp-bdd -name "cucumber_report.json" -exec cp {} public/bdd-report/cucumber_report.json \; || true
           rm -rf temp-bdd
 
       # API Report

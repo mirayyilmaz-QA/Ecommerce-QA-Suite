@@ -38,7 +38,7 @@ jobs:
         with:
           workflow: playwright.yml
           name: cucumber-report
-          path: temp-bdd # Download to a temp folder first
+          path: temp-bdd # Download to a temporary folder first
       - name: Move BDD Files to Public
         run: |
           mv temp-bdd/03-ui-automation-playwright/bdd-tests/reports/index.html public/bdd-report/index.html

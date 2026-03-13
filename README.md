@@ -44,4 +44,15 @@ This project is **production-ready.** Every code change triggers a **GitHub Acti
 | **API Testing** | [![API Regression Suite](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/api-tests.yml/badge.svg)](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/api-tests.yml) | Integration & Schema Validation |
 | **Performance** | [![Performance Load Tests (k6)](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/performance.yml/badge.svg)](https://github.com/mirayyilmaz-QA/Ecommerce-QA-Suite/actions/workflows/performance.yml)| Load Testing (k6) |
 
+
+## Live Test Automation Dashboards
+This repository features a fully automated CI/CD pipeline via GitHub Actions. Test executions are deployed automatically to GitHub Pages.
+
+| Test Suite | Framework | Live Report |
+| :--- | :--- | :--- |
+| **UI Regression** | Playwright (TypeScript) | [**View UI Report**](https://mirayyilmaz-QA.github.io/Ecommerce-QA-Suite/ui-report/) |
+| **BDD Scenarios** | Cucumber / Playwright | [**View BDD Report**](https://mirayyilmaz-QA.github.io/Ecommerce-QA-Suite/bdd-report/) |
+| **API Health** | Playwright API | [**View API Report**](https://mirayyilmaz-QA.github.io/Ecommerce-QA-Suite/api-report/) |
+| **Performance** | k6 | [**View k6 Summary**](https://mirayyilmaz-QA.github.io/Ecommerce-QA-Suite/performance-report/cucumber_report.html) |
+ 
  **Note:** The Sanity Suite at the top of this page runs on every commit to ensure core business flows (Login, Checkout) are never broken.
